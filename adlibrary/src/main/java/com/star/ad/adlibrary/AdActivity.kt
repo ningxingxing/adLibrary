@@ -120,7 +120,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                         super.onAdOpened()
                         Log.e(TAG, "showNativeAdLoader onAdOpened")
                     }
-                }, 0)
+                }, 0,true)
             }
 
             R.id.btn_open_ad -> {//开屏广告
@@ -138,7 +138,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                         override fun onAdShowedFullScreenContent() {
 
                         }
-                    })
+                    },true)
             }
 
             R.id.btn_interstitial_ad -> {//插页广告
@@ -146,12 +146,12 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                     override fun onComplete() {
                         Log.e(TAG, "showInterstitialAds onComplete")
                     }
-                })
+                },true)
 
             }
 
             R.id.btn_load_reward_ad -> {
-                initRewarded(this@AdActivity)
+                initRewarded(this@AdActivity,true)
 
             }
 
@@ -169,11 +169,11 @@ class AdActivity : AppCompatActivity(), OnClickListener {
 
                     }
 
-                })
+                },true)
             }
 
             R.id.btn_load_reward_interstitial_ad -> {
-                loadRewardedInterstitialAd(this@AdActivity)
+                loadRewardedInterstitialAd(this@AdActivity,true)
             }
 
             R.id.btn_show_reward_interstitial_ad -> {

@@ -9,6 +9,7 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import com.star.ad.adlibrary.interfaces.OnShowAdCompleteListener
+import com.star.ad.adlibrary.utils.AdsUtils.getUnitId
 import java.util.Date
 
 
@@ -28,7 +29,7 @@ object AppOpenAdManager {
         return appOpenAd != null && wasLoadTimeLessThanNHoursAgo(4)
     }
 
-    fun loadAd(context: Context) {
+    fun loadAd(context: Context, isDebug: Boolean = false) {
         // Do not load ad if there is an unused ad or one is already loading.
         if (isLoadingAd || isAdAvailable()) {
             return
@@ -38,7 +39,7 @@ object AppOpenAdManager {
         val request = AdRequest.Builder().build()
         AppOpenAd.load(
             context,
-            AD_UNIT_ID,
+            getUnitId(context, isDebug),
             request,
             AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT,
             object : AppOpenAd.AppOpenAdLoadCallback() {
@@ -70,7 +71,8 @@ object AppOpenAdManager {
 
     fun showAdIfAvailable(
         activity: Activity,
-        onShowAdCompleteListener: OnShowAdCompleteListener
+        onShowAdCompleteListener: OnShowAdCompleteListener,
+        isDebug: Boolean = false
     ) {
         // If the app open ad is already showing, do not show the ad again.
         if (isShowingAd) {
@@ -82,7 +84,7 @@ object AppOpenAdManager {
         if (!isAdAvailable()) {
             Log.d(TAG, "The app open ad is not ready yet.")
             onShowAdCompleteListener.onShowAdComplete()
-            loadAd(activity)
+            loadAd(activity, isDebug)
             return
         }
 
@@ -96,7 +98,7 @@ object AppOpenAdManager {
                 isShowingAd = false
 
                 onShowAdCompleteListener.onShowAdComplete()
-                loadAd(activity)
+                loadAd(activity, isDebug)
             }
 
             override fun onAdFailedToShowFullScreenContent(adError: AdError) {
@@ -107,7 +109,7 @@ object AppOpenAdManager {
                 isShowingAd = false
 
                 onShowAdCompleteListener.onShowAdError(adError)
-                loadAd(activity)
+                loadAd(activity, isDebug)
             }
 
             override fun onAdShowedFullScreenContent() {
