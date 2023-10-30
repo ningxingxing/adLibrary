@@ -95,6 +95,10 @@ object ShowAdsHelper {
     private var mInterstitialAd: InterstitialAd? = null
     private var adIsLoading: Boolean = false
 
+    fun isLoadInterstitialAds(): Boolean {
+        return adIsLoading
+    }
+
     /**
      * 加载插页广告
      */
@@ -248,6 +252,10 @@ object ShowAdsHelper {
     private var rewardedInterstitialAd: RewardedInterstitialAd? = null
     private var isLoadingAds: Boolean = false
 
+    fun isRewardedInterstitialAd():Boolean{
+        return isLoadingAds
+    }
+
     fun initRewarded(activity: Activity, isDebug: Boolean = false) {
         Log.e(TAG, "isLoadingAds =$isLoadingAds")
         if (!isLoadingAds) {
@@ -313,21 +321,22 @@ object ShowAdsHelper {
         isShowDialog: Boolean,
         listener: OnRewardListener,
         isDebug: Boolean = false
-    ) {
+    ): Boolean {
 
-        if (rewardedInterstitialAd == null) return
+        if (rewardedInterstitialAd == null) return false
 
         val rewardItem: RewardItem? = rewardedInterstitialAd?.rewardItem
         val rewardAmount = rewardItem?.amount
         val rewardType = rewardItem?.type
 
         Log.d(TAG, "The rewarded interstitial ad is ready.")
-        if (rewardAmount == null || rewardType == null) return
+        if (rewardAmount == null || rewardType == null) return false
         if (isShowDialog) {
             introduceVideoAd(activity, rewardAmount, rewardType, listener, isDebug)
         } else {
             showRewardedVideo(activity, listener, isDebug)
         }
+        return true
     }
 
     private fun showRewardedVideo(
@@ -409,6 +418,13 @@ object ShowAdsHelper {
         listener: OnUserEarnedRewardListener,
     ) {
         rewardedInterstitialAd?.show(activity, listener)
+    }
+
+    fun isLoadRewardedInterstitialA(): Boolean {
+        if (rewardedInterstitialAd != null) {
+            return true
+        }
+        return false
     }
 
 

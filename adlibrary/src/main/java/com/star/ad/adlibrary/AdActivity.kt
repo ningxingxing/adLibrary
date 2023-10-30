@@ -158,15 +158,15 @@ class AdActivity : AppCompatActivity(), OnClickListener {
             R.id.btn_show_reward_ad -> {
                 showRewardedAd(this@AdActivity, false, object : OnRewardListener {
                     override fun onAdShowed() {
-
+                        Log.d(TAG,"onAdShowed")
                     }
 
                     override fun onAdFailedToShow() {
-
+                        Log.d(TAG,"onAdFailedToShow")
                     }
 
                     override fun onAdDismissed() {
-
+                        Log.d(TAG,"onAdDismissed")
                     }
 
                 },true)
