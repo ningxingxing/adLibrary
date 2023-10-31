@@ -343,15 +343,15 @@ object ShowAdsHelper {
 
         Log.d(TAG, "The rewarded interstitial ad is ready.")
         if (rewardAmount == null || rewardType == null) return false
-        if (isCanShowAds()) {
-            return true
+        if (!isCanShowAds()) {
+            return false
         }
         if (isShowDialog) {
             introduceVideoAd(activity, rewardAmount, rewardType, listener, isDebug)
         } else {
             showRewardedVideo(activity, listener, isDebug)
         }
-        return false
+        return true
     }
 
     private fun showRewardedVideo(
