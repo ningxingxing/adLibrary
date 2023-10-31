@@ -31,7 +31,16 @@ import com.star.ad.adlibrary.utils.AdsUtils.getRewardId
 
 object ShowAdsHelper {
     const val TAG = "ShowAdsHelper"
+    private var mAdCount = 0
 
+    private fun isCanShowAds(): Boolean {
+        mAdCount++
+        if (mAdCount >= 3) {
+            mAdCount = 0
+            return true
+        }
+        return false
+    }
 
     /**
      * 显示banner 广告
@@ -96,7 +105,10 @@ object ShowAdsHelper {
     private var adIsLoading: Boolean = false
 
     fun isLoadInterstitialAds(): Boolean {
-        return adIsLoading
+        if (isCanShowAds() && mInterstitialAd != null) {
+            return true
+        }
+        return false
     }
 
     /**
@@ -252,7 +264,7 @@ object ShowAdsHelper {
     private var rewardedInterstitialAd: RewardedInterstitialAd? = null
     private var isLoadingAds: Boolean = false
 
-    fun isRewardedInterstitialAd():Boolean{
+    fun isRewardedInterstitialAd(): Boolean {
         return isLoadingAds
     }
 
@@ -331,12 +343,15 @@ object ShowAdsHelper {
 
         Log.d(TAG, "The rewarded interstitial ad is ready.")
         if (rewardAmount == null || rewardType == null) return false
+        if (isCanShowAds()) {
+            return true
+        }
         if (isShowDialog) {
             introduceVideoAd(activity, rewardAmount, rewardType, listener, isDebug)
         } else {
             showRewardedVideo(activity, listener, isDebug)
         }
-        return true
+        return false
     }
 
     private fun showRewardedVideo(
@@ -420,8 +435,8 @@ object ShowAdsHelper {
         rewardedInterstitialAd?.show(activity, listener)
     }
 
-    fun isLoadRewardedInterstitialA(): Boolean {
-        if (rewardedInterstitialAd != null) {
+    fun isLoadRewardedInterstitialAd(): Boolean {
+        if (rewardedInterstitialAd != null && isCanShowAds()) {
             return true
         }
         return false
