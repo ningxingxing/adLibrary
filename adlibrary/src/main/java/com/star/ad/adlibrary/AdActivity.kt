@@ -54,8 +54,6 @@ class AdActivity : AppCompatActivity(), OnClickListener {
 
     private lateinit var mAdView: AdView
 
-    val REWRDAD_TEST_ID = "ca-app-pub-3940256099942544/5224354917"
-    val NATIVEAD_TEST_ID = "ca-app-pub-3940256099942544/2247696110"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +61,6 @@ class AdActivity : AppCompatActivity(), OnClickListener {
 
         initView()
         initData()
-
 
     }
 

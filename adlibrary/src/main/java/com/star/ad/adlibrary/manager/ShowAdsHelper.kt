@@ -37,6 +37,7 @@ object ShowAdsHelper {
     const val TAG = "ShowAdsHelper"
     private var mAdCount = 0
     private var AD_COUNT = 5
+    private var isShowAds = true
 
     fun initAds(application: Application) {
         MobileAds.initialize(
@@ -55,6 +56,10 @@ object ShowAdsHelper {
 
 
     private fun isCanShowAds(): Boolean {
+        if (!isShowAds){
+            return false
+        }
+
         mAdCount++
         Log.i(TAG, "isCanShowAds mAdCount=$mAdCount")
         if (mAdCount >= AD_COUNT) {
@@ -65,6 +70,13 @@ object ShowAdsHelper {
 
     fun setCountSize(count: Int) {
         AD_COUNT = count
+    }
+
+    /**
+     * 是否显示广告
+     */
+    fun setShowAds(isShowAd:Boolean){
+        this.isShowAds = isShowAd
     }
 
     /**
