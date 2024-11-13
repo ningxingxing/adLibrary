@@ -1,5 +1,7 @@
 package com.star.ad.adlibrary
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,7 +17,6 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.OnUserEarnedRewardListener
-import com.google.android.gms.ads.rewarded.RewardItem
 import com.star.ad.adlibrary.interfaces.OnInterstitialAdListener
 import com.star.ad.adlibrary.interfaces.OnRewardListener
 import com.star.ad.adlibrary.interfaces.OnShowAdCompleteListener
@@ -27,14 +28,16 @@ import com.star.ad.adlibrary.manager.ShowAdsHelper.releaseNativeAds
 import com.star.ad.adlibrary.manager.ShowAdsHelper.showBannerAds
 import com.star.ad.adlibrary.manager.ShowAdsHelper.showInterstitialAds
 import com.star.ad.adlibrary.manager.ShowAdsHelper.showNativeAdLoader
-import com.star.ad.adlibrary.manager.ShowAdsHelper.showRewardedAd
-import com.star.ad.adlibrary.manager.ShowAdsHelper.showRewardedInterstitialAd
 
 
 class AdActivity : AppCompatActivity(), OnClickListener {
 
     companion object {
         const val TAG = "AdActivity"
+
+        fun startActivity(context: Context) {
+            context.startActivity(Intent(context, AdActivity::class.java))
+        }
     }
 
     private lateinit var btnLoadRewardAd: Button
@@ -146,6 +149,15 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                     override fun onComplete() {
                         Log.e(TAG, "showInterstitialAds onComplete")
                     }
+
+                    override fun showAd() {
+                        super.showAd()
+                    }
+
+                    override fun dismiss() {
+                        super.dismiss()
+
+                    }
                 },true)
 
             }
@@ -156,7 +168,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
             }
 
             R.id.btn_show_reward_ad -> {
-                showRewardedAd(this@AdActivity, false, object : OnRewardListener {
+                ShowAdsHelper.showRewardedInterstitialAd(this, false, object : OnRewardListener {
                     override fun onAdShowed() {
                         Log.d(TAG,"onAdShowed")
                     }
@@ -177,7 +189,8 @@ class AdActivity : AppCompatActivity(), OnClickListener {
             }
 
             R.id.btn_show_reward_interstitial_ad -> {
-                showRewardedInterstitialAd(this@AdActivity,
+                ShowAdsHelper.showRewardedInterstitialAd(
+                    this,
                     OnUserEarnedRewardListener { rewardItem ->
                         Log.e(TAG, " rewardItem amount=${rewardItem.amount}  type =${rewardItem.type}")
                     })

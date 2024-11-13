@@ -2,12 +2,16 @@ package com.star.ad.adlibrary.manager
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.ads.*
+import com.google.android.gms.ads.initialization.InitializationStatus
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.gms.ads.nativead.NativeAd
@@ -27,19 +31,40 @@ import com.star.ad.adlibrary.interfaces.OnRewardListener
 import com.star.ad.adlibrary.utils.AdsUtils.getBannerAdId
 import com.star.ad.adlibrary.utils.AdsUtils.getInterstitialId
 import com.star.ad.adlibrary.utils.AdsUtils.getNativeId
-import com.star.ad.adlibrary.utils.AdsUtils.getRewardId
+import com.star.ad.adlibrary.utils.AdsUtils.getRewardInterstitialId
 
 object ShowAdsHelper {
     const val TAG = "ShowAdsHelper"
     private var mAdCount = 0
+    private var AD_COUNT = 5
+
+    fun initAds(application: Application) {
+        MobileAds.initialize(
+            application,
+            OnInitializationCompleteListener { initializationStatus: InitializationStatus? ->
+                initializationStatus?.adapterStatusMap?.forEach { t, adapterStatus ->
+                    Log.i(
+                        TAG, "init complete key: ${t} adapterStatus" +
+                                "\ninitializationState: ${adapterStatus.initializationState.name}" +
+                                "\ndesc: ${adapterStatus.description}" +
+                                "\nlatency: ${adapterStatus.latency}"
+                    )
+                }
+            })
+    }
+
 
     private fun isCanShowAds(): Boolean {
         mAdCount++
-        if (mAdCount >= 3) {
-            mAdCount = 0
+        Log.i(TAG, "isCanShowAds mAdCount=$mAdCount")
+        if (mAdCount >= AD_COUNT) {
             return true
         }
         return false
+    }
+
+    fun setCountSize(count: Int) {
+        AD_COUNT = count
     }
 
     /**
@@ -149,6 +174,11 @@ object ShowAdsHelper {
         listener: OnInterstitialAdListener,
         isDebug: Boolean = false
     ) {
+        if (!isCanShowAds()) {
+            listener.onComplete()
+            return
+        }
+
         if (mInterstitialAd != null) {
             mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
                 override fun onAdClicked() {
@@ -158,6 +188,7 @@ object ShowAdsHelper {
 
                 override fun onAdDismissedFullScreenContent() {
                     // Called when ad is dismissed.
+                    listener.dismiss()
                     Log.d(TAG, "Ad dismissed fullscreen content.")
                     mInterstitialAd = null
                     loadInterstitialAds(activity, false, isDebug)
@@ -172,6 +203,8 @@ object ShowAdsHelper {
 
                 override fun onAdShowedFullScreenContent() {
                     // Called when ad is shown.
+                    mAdCount = 0
+                    listener.showAd()
                     Log.d(TAG, "Ad showed fullscreen content.")
                 }
             }
@@ -269,7 +302,7 @@ object ShowAdsHelper {
     }
 
     fun initRewarded(activity: Activity, isDebug: Boolean = false) {
-        Log.e(TAG, "isLoadingAds =$isLoadingAds")
+        Log.e(TAG, "initRewarded isLoadingAds= $isLoadingAds")
         if (!isLoadingAds) {
             loadRewardedInterstitialAd(activity, isDebug)
         }
@@ -282,23 +315,25 @@ object ShowAdsHelper {
             // Use the test ad unit ID to load an ad.
             RewardedInterstitialAd.load(
                 activity,
-                getRewardId(activity, isDebug),
+                getRewardInterstitialId(activity, isDebug),
                 adRequest,
                 object : RewardedInterstitialAdLoadCallback() {
                     override fun onAdLoaded(ad: RewardedInterstitialAd) {
-                        Log.d(TAG, "onAdLoaded")
+                        Log.d(TAG, "loadRewardedInterstitialAd onAdLoaded")
                         rewardedInterstitialAd = ad
                         isLoadingAds = false
-
+                        mAdCount = 0
                     }
 
                     override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                        Log.d(TAG, "onAdFailedToLoad: " + loadAdError.message)
+                        Log.d(
+                            TAG,
+                            "loadRewardedInterstitialAd onAdFailedToLoad: " + loadAdError.message
+                        )
 
                         // Handle the error.
                         rewardedInterstitialAd = null
                         isLoadingAds = false
-
                     }
                 })
         }
@@ -316,7 +351,7 @@ object ShowAdsHelper {
             object : AdDialogFragment.AdDialogInteractionListener {
                 override fun onShowAd() {
                     // Log.d(MainActivity.TAG, "The rewarded interstitial ad is starting.")
-                    showRewardedVideo(activity, listener, isDebug)
+                    showRewardedInterstitialVideo(activity, listener, isDebug)
                 }
 
                 override fun onCancelAd() {
@@ -328,7 +363,7 @@ object ShowAdsHelper {
     }
 
 
-    fun showRewardedAd(
+    fun showRewardedInterstitialAd(
         activity: AppCompatActivity,
         isShowDialog: Boolean,
         listener: OnRewardListener,
@@ -341,7 +376,6 @@ object ShowAdsHelper {
         val rewardAmount = rewardItem?.amount
         val rewardType = rewardItem?.type
 
-        Log.d(TAG, "The rewarded interstitial ad is ready.")
         if (rewardAmount == null || rewardType == null) return false
         if (!isCanShowAds()) {
             return false
@@ -349,30 +383,38 @@ object ShowAdsHelper {
         if (isShowDialog) {
             introduceVideoAd(activity, rewardAmount, rewardType, listener, isDebug)
         } else {
-            showRewardedVideo(activity, listener, isDebug)
+            showRewardedInterstitialVideo(activity, listener, isDebug)
         }
         return true
     }
 
-    private fun showRewardedVideo(
+    private fun showRewardedInterstitialVideo(
         activity: Activity,
         listener: OnRewardListener,
         isDebug: Boolean = false
     ) {
+        if (!isCanShowAds()) {
+            listener.onAdDismissed()
+            return
+        }
         if (rewardedInterstitialAd == null) {
-            Log.d(TAG, "The rewarded interstitial ad wasn't ready yet.")
+            Log.d(TAG, "showRewardedVideo The rewarded interstitial ad wasn't ready yet.")
             return
         }
         rewardedInterstitialAd!!.fullScreenContentCallback = object : FullScreenContentCallback() {
             /** Called when ad showed the full screen content.  */
             override fun onAdShowedFullScreenContent() {
-                Log.d(TAG, "onAdShowedFullScreenContent")
+                Log.d(TAG, "showRewardedVideo onAdShowedFullScreenContent")
+                mAdCount = 0
                 listener.onAdShowed()
             }
 
             /** Called when the ad failed to show full screen content.  */
             override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-                Log.d(TAG, "onAdFailedToShowFullScreenContent: " + adError.message)
+                Log.d(
+                    TAG,
+                    "showRewardedVideo onAdFailedToShowFullScreenContent: " + adError.message
+                )
 
                 // Don't forget to set the ad reference to null so you
                 // don't show the ad a second time.
@@ -388,7 +430,7 @@ object ShowAdsHelper {
                 // don't show the ad a second time.
                 listener.onAdDismissed()
                 rewardedInterstitialAd = null
-                Log.d(TAG, "onAdDismissedFullScreenContent")
+                Log.d(TAG, "showRewardedVideo onAdDismissedFullScreenContent")
 
                 // Preload the next rewarded interstitial ad.
                 loadRewardedInterstitialAd(activity)
@@ -398,7 +440,7 @@ object ShowAdsHelper {
         rewardedInterstitialAd!!.show(
             activityContext
         ) { rewardItem -> // Handle the reward.
-            Log.d(TAG, "The user earned the reward.")
+            Log.d(TAG, "showRewardedVideo The user earned the reward.")
             addCoins(rewardItem.amount)
         }
     }
@@ -414,10 +456,10 @@ object ShowAdsHelper {
      */
 
     fun loadRewardedInterstitialAd(context: Context, isDebug: Boolean = false) {
-        RewardedInterstitialAd.load(context, getRewardId(context, isDebug),
+        RewardedInterstitialAd.load(context, getRewardInterstitialId(context, isDebug),
             AdRequest.Builder().build(), object : RewardedInterstitialAdLoadCallback() {
                 override fun onAdLoaded(ad: RewardedInterstitialAd) {
-                    Log.d(TAG, "Ad was loaded.")
+                    Log.d(TAG, "loadRewardedInterstitialAd Ad was loaded.")
                     rewardedInterstitialAd = ad
                 }
 

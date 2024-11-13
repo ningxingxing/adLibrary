@@ -20,7 +20,10 @@ object AdsUtils {
 
             //eq
             resources.getString(R.string.eq_package_name) -> {
-                return resources.getString(R.string.eq_unit_id)
+                return resources.getString(R.string.eq_ad_banner_id)
+            }
+            resources.getString(R.string.gallery_package_name)->{
+                return resources.getString(R.string.gallery_ad_banner_id)
             }
             //demo
             resources.getString(R.string.demo_package_name) -> {
@@ -43,7 +46,11 @@ object AdsUtils {
         when (getCurrentPackageName(context)) {
             //eq
             resources.getString(R.string.eq_package_name) -> {
-                return resources.getString(R.string.eq_interstitial_id)
+                return resources.getString(R.string.eq_ad_interstitial_id)
+            }
+
+            resources.getString(R.string.gallery_package_name)->{
+                return resources.getString(R.string.gallery_ad_interstitial_id)
             }
 
             //demo
@@ -65,7 +72,11 @@ object AdsUtils {
 
         when (getCurrentPackageName(context)) {
             context.getString(R.string.eq_package_name) -> {
-                return context.getString(R.string.eq_native_id)
+                return context.getString(R.string.eq_ad_native_id)
+            }
+
+            context.getString(R.string.gallery_package_name)->{
+                return context.getString(R.string.gallery_ad_native_id)
             }
 
             context.getString(R.string.demo_package_name) -> {
@@ -85,7 +96,35 @@ object AdsUtils {
 
         when (getCurrentPackageName(context)) {
             context.getString(R.string.eq_package_name) -> {
-                return context.getString(R.string.eq_rewarded_id)
+                return context.getString(R.string.eq_ad_rewarded_id)
+            }
+
+            context.getString(R.string.gallery_package_name)->{
+                return context.getString(R.string.gallery_ad_rewarded_id)
+            }
+
+            context.getString(R.string.demo_package_name) -> {
+                return context.getString(R.string.demo_rewarded_id)
+            }
+        }
+        return ""
+    }
+
+    /**
+     * 获取激励广告id
+     */
+    fun getRewardInterstitialId(context: Context, isDebug: Boolean = false): String {
+        if (isDebug) {
+            return context.getString(R.string.demo_rewarded_id)
+        }
+
+        when (getCurrentPackageName(context)) {
+            context.getString(R.string.eq_package_name) -> {
+                return context.getString(R.string.eq_ad_rewarded_interstitial_id)
+            }
+
+            context.getString(R.string.gallery_package_name)->{
+                return context.getString(R.string.gallery_ad_rewarded_interstitial_id)
             }
 
             context.getString(R.string.demo_package_name) -> {
@@ -97,16 +136,20 @@ object AdsUtils {
 
 
     /**
-     * 获取激励广告id
+     * 获取开屏id
      */
-    fun getUnitId(context: Context, isDebug: Boolean = false): String {
+    fun getAdAppOpenId(context: Context, isDebug: Boolean = false): String {
         if (isDebug) {
             return context.getString(R.string.demo_unit_id)
         }
 
         when (getCurrentPackageName(context)) {
             context.getString(R.string.eq_package_name) -> {
-                return context.getString(R.string.eq_unit_id)
+                return context.getString(R.string.eq_ad_app_open_id)
+            }
+
+            context.getString(R.string.gallery_package_name)->{
+                return context.getString(R.string.gallery_ad_app_open_id)
             }
 
             context.getString(R.string.demo_package_name) -> {

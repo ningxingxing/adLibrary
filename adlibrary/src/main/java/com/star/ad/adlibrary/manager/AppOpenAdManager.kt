@@ -9,13 +9,12 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import com.star.ad.adlibrary.interfaces.OnShowAdCompleteListener
-import com.star.ad.adlibrary.utils.AdsUtils.getUnitId
+import com.star.ad.adlibrary.utils.AdsUtils.getAdAppOpenId
 import java.util.Date
 
 
 object AppOpenAdManager {
     private const val TAG = "AppOpenAdManager"
-    private const val AD_UNIT_ID = "ca-app-pub-3940256099942544/3419835294"
 
     private var appOpenAd: AppOpenAd? = null
     private var isLoadingAd = false
@@ -39,7 +38,7 @@ object AppOpenAdManager {
         val request = AdRequest.Builder().build()
         AppOpenAd.load(
             context,
-            getUnitId(context, isDebug),
+            getAdAppOpenId(context, isDebug),
             request,
             AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT,
             object : AppOpenAd.AppOpenAdLoadCallback() {

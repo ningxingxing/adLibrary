@@ -25,8 +25,12 @@ object Utils {
      * 获取当前应用包名
      */
     fun getCurrentPackageName(context: Context): String {
-        val processInfos = (context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).runningAppProcesses
+        val processInfos =
+            (context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).runningAppProcesses
         val myPid = Process.myPid()
+        if (processInfos == null) {
+            return ""
+        }
         for (info in processInfos) {
             if (info.pid == myPid) {
                 return info.processName

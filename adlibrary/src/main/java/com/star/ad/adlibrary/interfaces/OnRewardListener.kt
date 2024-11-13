@@ -2,10 +2,10 @@ package com.star.ad.adlibrary.interfaces
 
 interface OnRewardListener {
 
-    fun onAdShowed()
+    fun onAdShowed(){}
 
-    fun onAdFailedToShow()
+    fun onAdFailedToShow(){}
 
-    fun onAdDismissed()
+    fun onAdDismissed(){}
 
 }
