@@ -22,8 +22,13 @@ object AdsUtils {
             resources.getString(R.string.eq_package_name) -> {
                 return resources.getString(R.string.eq_ad_banner_id)
             }
+            //gallery
             resources.getString(R.string.gallery_package_name)->{
                 return resources.getString(R.string.gallery_ad_banner_id)
+            }
+            //music
+            resources.getString(R.string.music_package_name) ->{
+                return resources.getString(R.string.music_ad_banner_id)
             }
             //demo
             resources.getString(R.string.demo_package_name) -> {
@@ -48,9 +53,13 @@ object AdsUtils {
             resources.getString(R.string.eq_package_name) -> {
                 return resources.getString(R.string.eq_ad_interstitial_id)
             }
-
+            //gallery
             resources.getString(R.string.gallery_package_name)->{
                 return resources.getString(R.string.gallery_ad_interstitial_id)
+            }
+            //music
+            resources.getString(R.string.music_package_name)->{
+                return resources.getString(R.string.music_ad_interstitial_id)
             }
 
             //demo
@@ -79,6 +88,10 @@ object AdsUtils {
                 return context.getString(R.string.gallery_ad_native_id)
             }
 
+            context.getString(R.string.music_package_name)->{
+                return context.getString(R.string.music_ad_native_id)
+            }
+
             context.getString(R.string.demo_package_name) -> {
                 return context.getString(R.string.demo_native_id)
             }
@@ -101,6 +114,10 @@ object AdsUtils {
 
             context.getString(R.string.gallery_package_name)->{
                 return context.getString(R.string.gallery_ad_rewarded_id)
+            }
+
+            context.getString(R.string.music_package_name)->{
+                return context.getString(R.string.music_ad_rewarded_id)
             }
 
             context.getString(R.string.demo_package_name) -> {
@@ -127,6 +144,10 @@ object AdsUtils {
                 return context.getString(R.string.gallery_ad_rewarded_interstitial_id)
             }
 
+            context.getString(R.string.music_package_name)->{
+                return context.getString(R.string.music_ad_rewarded_interstitial_id)
+            }
+
             context.getString(R.string.demo_package_name) -> {
                 return context.getString(R.string.demo_rewarded_id)
             }
@@ -150,6 +171,10 @@ object AdsUtils {
 
             context.getString(R.string.gallery_package_name)->{
                 return context.getString(R.string.gallery_ad_app_open_id)
+            }
+
+            context.getString(R.string.music_package_name)->{
+                return context.getString(R.string.music_ad_app_open_id)
             }
 
             context.getString(R.string.demo_package_name) -> {
