@@ -10,13 +10,21 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.provider.FontsContractCompat.FontRequestCallback.RESULT_OK
+import androidx.core.view.accessibility.AccessibilityEventCompat.setAction
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.OnUserEarnedRewardListener
+import com.google.android.material.snackbar.Snackbar
+import com.star.ad.adlibrary.helper.AppUpdateHelper
+import com.star.ad.adlibrary.interfaces.IAppUpdateHelper
 import com.star.ad.adlibrary.interfaces.OnInterstitialAdListener
 import com.star.ad.adlibrary.interfaces.OnRewardListener
 import com.star.ad.adlibrary.interfaces.OnShowAdCompleteListener
@@ -51,8 +59,13 @@ class AdActivity : AppCompatActivity(), OnClickListener {
     private lateinit var nativeAdFrame: FrameLayout
     private lateinit var btnLoadRewardInterstitialAd: Button
     private lateinit var btnShowRewardInterstitialAd: Button
+    private lateinit var btnUpdate: Button
 
     private lateinit var mAdView: AdView
+
+    private lateinit var mLauncher: ActivityResultLauncher<IntentSenderRequest>
+
+    private var mAppUpdateHelper: AppUpdateHelper? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,6 +99,8 @@ class AdActivity : AppCompatActivity(), OnClickListener {
         btnLoadRewardInterstitialAd.setOnClickListener(this)
         btnShowRewardInterstitialAd = findViewById(R.id.btn_show_reward_interstitial_ad)
         btnShowRewardInterstitialAd.setOnClickListener(this)
+        btnUpdate = findViewById(R.id.btn_update)
+        btnUpdate.setOnClickListener(this)
 
         mAdView = showBannerAds(this, rlBannerAds, AdSize.BANNER)
 
@@ -94,6 +109,22 @@ class AdActivity : AppCompatActivity(), OnClickListener {
     private fun initData() {
 
 
+        registerForActivityResult()
+
+        mAppUpdateHelper = AppUpdateHelper(this, mLauncher)
+
+    }
+
+    private fun registerForActivityResult() {
+        mLauncher =
+            registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
+                Log.i(TAG, "mLauncher resultCode: ${it.resultCode}")
+                if (it.resultCode != RESULT_OK) {
+                    Log.i(TAG, "mLauncher resultCode 11: ${it.resultCode}")
+                    // If the update is canceled or fails,
+                    // you can request to start the update again.
+                }
+            }
     }
 
     override fun onClick(v: View?) {
@@ -120,7 +151,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                         super.onAdOpened()
                         Log.e(TAG, "showNativeAdLoader onAdOpened")
                     }
-                }, 0,true)
+                }, 0, true)
             }
 
             R.id.btn_open_ad -> {//开屏广告
@@ -138,7 +169,8 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                         override fun onAdShowedFullScreenContent() {
 
                         }
-                    },true)
+                    }, true
+                )
             }
 
             R.id.btn_interstitial_ad -> {//插页广告
@@ -155,49 +187,95 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                         super.dismiss()
 
                     }
-                },true)
+                }, true)
 
             }
 
             R.id.btn_load_reward_ad -> {
-                initRewarded(this@AdActivity,true)
+                initRewarded(this@AdActivity, true)
 
             }
 
             R.id.btn_show_reward_ad -> {
                 ShowAdsHelper.showRewardedInterstitialAd(this, false, object : OnRewardListener {
                     override fun onAdShowed() {
-                        Log.d(TAG,"onAdShowed")
+                        Log.d(TAG, "onAdShowed")
                     }
 
                     override fun onAdFailedToShow() {
-                        Log.d(TAG,"onAdFailedToShow")
+                        Log.d(TAG, "onAdFailedToShow")
                     }
 
                     override fun onAdDismissed() {
-                        Log.d(TAG,"onAdDismissed")
+                        Log.d(TAG, "onAdDismissed")
                     }
 
-                },true)
+                }, true)
             }
 
             R.id.btn_load_reward_interstitial_ad -> {
-                loadRewardedInterstitialAd(this@AdActivity,true)
+                loadRewardedInterstitialAd(this@AdActivity, true)
             }
 
             R.id.btn_show_reward_interstitial_ad -> {
                 ShowAdsHelper.showRewardedInterstitialAd(
                     this,
                     OnUserEarnedRewardListener { rewardItem ->
-                        Log.e(TAG, " rewardItem amount=${rewardItem.amount}  type =${rewardItem.type}")
+                        Log.e(
+                            TAG,
+                            " rewardItem amount=${rewardItem.amount}  type =${rewardItem.type}"
+                        )
                     })
             }
+
+            R.id.btn_update -> {
+
+                popupSnackbarForCompleteUpdate()
+                mAppUpdateHelper?.update(object : IAppUpdateHelper {
+                    override fun onUpdateState(updateAvailability: Int) {
+
+                    }
+
+                    override fun onUpdateProgress(progress: Long, maxSize: Long) {
+
+                    }
+
+                    override fun onDownloadFinish() {
+                        super.onDownloadFinish()
+
+                    }
+
+                })
+
+            }
+        }
+    }
+
+
+    fun popupSnackbarForCompleteUpdate() {
+        Snackbar.make(
+            btnUpdate,
+            "An update has just been downloaded.",
+            Snackbar.LENGTH_INDEFINITE
+        ).apply {
+            setAction("RESTART") {
+                mAppUpdateHelper?.updateComplete()
+            }
+            setActionTextColor(context.resources.getColor(R.color.teal_700))
+            show()
         }
     }
 
     override fun onResume() {
         super.onResume()
         mAdView.resume()
+
+        mAppUpdateHelper?.checkAppDownload(object : IAppUpdateHelper {
+            override fun onDownloadFinish() {
+                super.onDownloadFinish()
+                popupSnackbarForCompleteUpdate()
+            }
+        })
     }
 
     override fun onPause() {
@@ -211,6 +289,8 @@ class AdActivity : AppCompatActivity(), OnClickListener {
         mAdView.destroy()
 
         releaseNativeAds()
+
+        mAppUpdateHelper?.unregisterUpdateListener()
 
     }
 

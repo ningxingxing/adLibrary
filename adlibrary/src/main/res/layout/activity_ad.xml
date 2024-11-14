@@ -101,5 +101,12 @@
             android:text="显示插页激励广告" />
 
 
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:text="应用更新"
+            android:layout_height="wrap_content"/>
+
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>
