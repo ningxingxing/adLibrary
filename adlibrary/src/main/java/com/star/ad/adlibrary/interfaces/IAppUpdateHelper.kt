@@ -7,4 +7,6 @@ interface IAppUpdateHelper {
     fun onUpdateProgress(progress: Long, maxSize: Long) {}
 
     fun onDownloadFinish() {}
+
+    fun onCheckDownload(boolean: Boolean){}
 }

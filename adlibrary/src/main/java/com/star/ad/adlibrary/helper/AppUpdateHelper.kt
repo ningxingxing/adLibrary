@@ -109,8 +109,10 @@ class AppUpdateHelper(
                 // If the update is downloaded but not installed,
                 // notify the user to complete the update.
                 if (appUpdateInfo.installStatus() == InstallStatus.DOWNLOADED) {
-                    listener.onDownloadFinish()
+                    listener.onCheckDownload(true)
+                    return@addOnSuccessListener
                 }
+                listener.onCheckDownload(false)
             }
     }
 
