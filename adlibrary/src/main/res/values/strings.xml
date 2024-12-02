@@ -30,13 +30,13 @@
 
     <!-- music -->
     <string name="music_package_name">zong.media.music.musicplayer</string>
-    <string name="music_ad_app_id">ca-app-pub-3404314832475196~5520852856</string>
-    <string name="music_ad_banner_id">ca-app-pub-3404314832475196/4947844076</string>
-    <string name="music_ad_interstitial_id">ca-app-pub-3404314832475196/1064439380</string>
-    <string name="music_ad_native_id">ca-app-pub-3404314832475196/4404918594</string>
-    <string name="music_ad_rewarded_id">ca-app-pub-3404314832475196/7031081934</string>
-    <string name="music_ad_rewarded_interstitial_id">ca-app-pub-3404314832475196/8993194004</string>
-    <string name="music_ad_app_open_id">ca-app-pub-3404314832475196/1778755252</string>
+    <string name="music_ad_app_id">ca-app-pub-3404314832475196~2754341251</string>
+    <string name="music_ad_banner_id">ca-app-pub-3404314832475196/3193598025</string>
+    <string name="music_ad_interstitial_id">ca-app-pub-3404314832475196/9732481441</string>
+    <string name="music_ad_native_id">ca-app-pub-3404314832475196/1470848047</string>
+    <string name="music_ad_rewarded_id">ca-app-pub-3404314832475196/8064278187</string>
+    <string name="music_ad_rewarded_interstitial_id">ca-app-pub-3404314832475196/3498245586</string>
+    <string name="music_ad_app_open_id">ca-app-pub-3404314832475196/3003523199</string>
 
     <string name="ad_attribution">Ad</string>
 
