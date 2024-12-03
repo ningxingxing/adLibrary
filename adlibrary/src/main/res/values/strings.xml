@@ -49,4 +49,11 @@
     <string name="negative_button_text" translatable="false">No, thanks</string>
     
     <string name="recommend_app">Recommended applications</string>
+    <string name="music_name">MusicPlayer</string>
+    <string name="eq_name">Bass Booster</string>
+    <string name="photo_name">Gallery</string>
+
+    <string name="eq_url">https://play.google.com/console/u/0/developers/7931623472080297326/app/4972285693413639416/app-dashboard?timespan=thirtyDays</string>
+    <string name="music_url">https://play.google.com/store/apps/details?id=zong.media.music.musicplayer</string>
+    <string name="photo_url">https://play.google.com/store/apps/details?id=com.zong.sen.photo.photoeditor</string>
 </resources>

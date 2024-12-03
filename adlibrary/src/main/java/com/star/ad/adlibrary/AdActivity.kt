@@ -23,6 +23,7 @@ import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.OnUserEarnedRewardListener
 import com.google.android.material.snackbar.Snackbar
+import com.star.ad.adlibrary.constants.KEY_PACKAGE_NAME
 import com.star.ad.adlibrary.helper.AppUpdateHelper
 import com.star.ad.adlibrary.interfaces.IAppUpdateHelper
 import com.star.ad.adlibrary.interfaces.OnInterstitialAdListener
@@ -229,23 +230,27 @@ class AdActivity : AppCompatActivity(), OnClickListener {
             }
 
             R.id.btn_update -> {
+                val intent = Intent(this@AdActivity, RecommendActivity::class.java)
+                intent.putExtra(KEY_PACKAGE_NAME, resources.getString(R.string.eq_package_name))
+                startActivity(intent)
 
-                popupSnackbarForCompleteUpdate()
-                mAppUpdateHelper?.update(object : IAppUpdateHelper {
-                    override fun onUpdateState(updateAvailability: Int) {
+//                popupSnackbarForCompleteUpdate()
+//                mAppUpdateHelper?.update(object : IAppUpdateHelper {
+//                    override fun onUpdateState(updateAvailability: Int) {
+//
+//                    }
+//
+//                    override fun onUpdateProgress(progress: Long, maxSize: Long) {
+//
+//                    }
+//
+//                    override fun onDownloadFinish() {
+//                        super.onDownloadFinish()
+//
+//                    }
+//
+//                })
 
-                    }
-
-                    override fun onUpdateProgress(progress: Long, maxSize: Long) {
-
-                    }
-
-                    override fun onDownloadFinish() {
-                        super.onDownloadFinish()
-
-                    }
-
-                })
 
             }
         }

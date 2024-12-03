@@ -8,39 +8,34 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.luck.picture.lib.entity.LocalMedia
-import com.luck.picture.lib.utils.DensityUtil
+import com.bumptech.glide.Glide
 import com.star.ad.adlibrary.utils.ScreenUtils
 import com.star.ad.adlibrary.model.RecommendData
 import com.star.ad.adlibrary.utils.DensityUtil
 
 
-/**
- * @author：luck
- * @date：2016-12-11 17:02
- * @describe：PictureAlbumDirectoryAdapter
- */
 class RecommendAdapter(private val context: Context) :
     RecyclerView.Adapter<RecommendAdapter.ViewHolder?>() {
 
-    private var albumList: MutableList<RecommendData> = ArrayList()
+    private var recommendList: MutableList<RecommendData> = ArrayList()
     private var isEditMode = false
     private var mItemWidth = 100
-    private var mSize = 100
 
     companion object {
-        private const val TAG = "GalleryAllAdapter"
+        private const val TAG = "RecommendAdapter"
     }
 
     init {
-        mItemWidth = ScreenUtils.getScreenWidth(context) / 4
-        mSize = DensityUtil.dip2px(context, 50f)
+        mItemWidth = ScreenUtils.getScreenWidth(context) / 3
         Log.i(TAG, "mItemWidth=$mItemWidth")
     }
 
-    fun bindAllData(albumList: MutableList<RecommendData>?) {
-        this.albumList = ArrayList(albumList)
+    fun bindAllData(data: MutableList<RecommendData>) {
+        this.recommendList = data
         notifyDataSetChanged()
     }
 
@@ -50,7 +45,6 @@ class RecommendAdapter(private val context: Context) :
     }
 
     fun updateSelect(position: Int, localMedia: RecommendData) {
-
         notifyItemChanged(position)
     }
 
@@ -69,53 +63,48 @@ class RecommendAdapter(private val context: Context) :
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val localMedia = albumList[position]
+        val recommendData = recommendList[position]
 
-
-
-//
-//        Glide.with(context)
-//            .asBitmap()
-//            .load(R.drawable.ic_cover)
-//            .transform(CenterCrop(), RoundedCorners(8))
-//            .into(holder.ivAllCover)
-
+        holder.tvTitle.setText(recommendData.title)
+        Glide.with(context)
+            .asBitmap()
+            .load(recommendData.icon)
+            .into(holder.ivIcon)
 
     }
 
     override fun getItemCount(): Int {
-        return if (albumList.isEmpty()) {
+        return if (recommendList.isEmpty()) {
             0
         } else {
-            albumList.size
+            recommendList.size
         }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var ivAllImage: AppCompatImageView
-        var ivEdit: AppCompatImageView
-        var ivAllCover: AppCompatImageView
+        var tvTitle: AppCompatTextView
+        var ivIcon: AppCompatImageView
+        var llRecommend: LinearLayoutCompat
 
 
         init {
-            ivAllImage = itemView.findViewById(R.id.iv_adapter_all_image)
-            ivEdit = itemView.findViewById(R.id.iv_edit)
-            ivAllCover = itemView.findViewById(R.id.iv_all_cover)
+            tvTitle = itemView.findViewById(R.id.tv_adapter_ads_title)
+            ivIcon = itemView.findViewById(R.id.iv_adapter_ads_icon)
+            llRecommend = itemView.findViewById(R.id.ll_adapter_recommend)
             itemView.setOnClickListener {
-                onAllItemClickListener?.onItemClick(layoutPosition, albumList)
+                onAllItemClickListener?.onItemClick(layoutPosition, recommendList[adapterPosition])
             }
 
             itemView.setOnLongClickListener {
-                onAllItemClickListener?.onLongClick(layoutPosition, albumList)
+                onAllItemClickListener?.onLongClick(layoutPosition, recommendList)
 
                 false
             }
-            setViewSize(ivAllImage)
-            setViewSize(ivAllCover)
+           // setViewSize(llRecommend)
         }
 
         private fun setViewSize(view: View) {
-            val layoutParams = view.layoutParams as RelativeLayout.LayoutParams
+            val layoutParams = view.layoutParams as ConstraintLayout.LayoutParams
             layoutParams.width = mItemWidth
             layoutParams.height = mItemWidth
             view.layoutParams = layoutParams
@@ -134,8 +123,8 @@ class RecommendAdapter(private val context: Context) :
     }
 
     interface OnAllItemClickListener {
-        fun onItemClick(position: Int, list: MutableList<LocalMedia>)
+        fun onItemClick(position: Int, recommendData: RecommendData)
 
-        fun onLongClick(position: Int, list: MutableList<LocalMedia>)
+        fun onLongClick(position: Int, list: MutableList<RecommendData>)
     }
 }
