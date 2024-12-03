@@ -47,4 +47,6 @@
     <string name="more_coins_text" translatable="false">Watch an ad for %d more %s.</string>
     <string name="video_starting_in_text" translatable="false">Video starting in %d…</string>
     <string name="negative_button_text" translatable="false">No, thanks</string>
+    
+    <string name="recommend_app">Recommended applications</string>
 </resources>
