@@ -231,7 +231,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
 
             R.id.btn_update -> {
                 val intent = Intent(this@AdActivity, RecommendActivity::class.java)
-                intent.putExtra(KEY_PACKAGE_NAME, resources.getString(R.string.eq_package_name))
+                intent.putExtra(KEY_PACKAGE_NAME, resources.getString(R.string.gallery_package_name))
                 startActivity(intent)
 
 //                popupSnackbarForCompleteUpdate()
