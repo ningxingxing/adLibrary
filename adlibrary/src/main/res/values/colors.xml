@@ -18,4 +18,5 @@
     <color name="black_ten">#1A000000</color>
 
     <color name="ads_bg_color">#FAFAFA</color>
+    <color name="ads_icon_color">#FF000000</color>
 </resources>
