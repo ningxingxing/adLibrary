@@ -38,7 +38,9 @@ class RecommendActivity : AppCompatActivity(), View.OnClickListener,
         super.onCreate(savedInstanceState)
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.ads_bg_color)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+
         setContentView(binding.root)
 
 

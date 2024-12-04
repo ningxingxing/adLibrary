@@ -16,4 +16,6 @@
     <color name="black_thirty">#4D000000</color>
     <color name="black_twenty">#33000000</color>
     <color name="black_ten">#1A000000</color>
+
+    <color name="ads_bg_color">#FAFAFA</color>
 </resources>
