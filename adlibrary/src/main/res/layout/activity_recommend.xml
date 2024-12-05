@@ -23,37 +23,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/black"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="@string/recommend_app"
-            android:textSize="15sp" />
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            app:srcCompat="@drawable/ic_ads" />
+            app:srcCompat="@drawable/ic_ads_recommend" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
     <View
         android:layout_width="match_parent"
-        android:background="@color/black_twenty"
-        android:layout_height="0.5dp"/>
+        android:layout_height="0.5dp"
+        android:background="@color/black_twenty" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
-        android:layout_marginTop="20dp"
         android:layout_margin="20dp"
-        >
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="20dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
-            android:layout_margin="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp" />
     </androidx.cardview.widget.CardView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
