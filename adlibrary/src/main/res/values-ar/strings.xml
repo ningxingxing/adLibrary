@@ -1,0 +1,6 @@
+<resources>
+    <string name="recommend_app">التطبيقات الموصى بها</string>
+    <string name="music_name">مشغل الموسيقى</string>
+    <string name="eq_name">معزز الجهير</string>
+    <string name="photo_name">المعرض</string>
+</resources>

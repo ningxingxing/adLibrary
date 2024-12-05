@@ -1,0 +1,6 @@
+<resources>
+    <string name="recommend_app">Aplicações recomendadas</string>
+    <string name="music_name">Reprodutor de música</string>
+    <string name="eq_name">Reforço de graves</string>
+    <string name="photo_name">Galeria</string>
+</resources>

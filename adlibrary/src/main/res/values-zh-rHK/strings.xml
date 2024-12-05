@@ -1,0 +1,6 @@
+<resources>
+    <string name="recommend_app">推薦應用程式</string>
+    <string name="music_name">音樂播放器</string>
+    <string name="eq_name">低音增強器</string>
+    <string name="photo_name">圖庫</string>
+</resources>

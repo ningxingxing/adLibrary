@@ -1,0 +1,6 @@
+<resources>
+    <string name="recommend_app">Aplikasi yang direkomendasikan</string>
+    <string name="music_name">Pemutar Musik</string>
+    <string name="eq_name">Penguat Bass</string>
+    <string name="photo_name">Galeri</string>
+</resources>

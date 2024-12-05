@@ -1,0 +1,6 @@
+<resources>
+    <string name="recommend_app">추천 애플리케이션</string>
+    <string name="music_name">MusicPlayer</string>
+    <string name="eq_name">베이스 부스터</string>
+    <string name="photo_name">갤러리</string>
+</resources>
