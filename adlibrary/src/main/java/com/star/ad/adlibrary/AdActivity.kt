@@ -24,8 +24,10 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.OnUserEarnedRewardListener
 import com.google.android.material.snackbar.Snackbar
 import com.star.ad.adlibrary.constants.KEY_PACKAGE_NAME
+import com.star.ad.adlibrary.helper.AppCoreHelper
 import com.star.ad.adlibrary.helper.AppUpdateHelper
 import com.star.ad.adlibrary.interfaces.IAppUpdateHelper
+import com.star.ad.adlibrary.interfaces.ICoreListener
 import com.star.ad.adlibrary.interfaces.OnInterstitialAdListener
 import com.star.ad.adlibrary.interfaces.OnRewardListener
 import com.star.ad.adlibrary.interfaces.OnShowAdCompleteListener
@@ -61,12 +63,16 @@ class AdActivity : AppCompatActivity(), OnClickListener {
     private lateinit var btnLoadRewardInterstitialAd: Button
     private lateinit var btnShowRewardInterstitialAd: Button
     private lateinit var btnUpdate: Button
+    private lateinit var btnCore: Button
 
     private lateinit var mAdView: AdView
 
     private lateinit var mLauncher: ActivityResultLauncher<IntentSenderRequest>
 
     private var mAppUpdateHelper: AppUpdateHelper? = null
+    private val mAppCoreHelper: AppCoreHelper by lazy {
+        AppCoreHelper(this)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,6 +108,9 @@ class AdActivity : AppCompatActivity(), OnClickListener {
         btnShowRewardInterstitialAd.setOnClickListener(this)
         btnUpdate = findViewById(R.id.btn_update)
         btnUpdate.setOnClickListener(this)
+        btnCore = findViewById(R.id.btn_core)
+        btnCore.setOnClickListener(this)
+
 
         mAdView = showBannerAds(this, rlBannerAds, AdSize.BANNER)
 
@@ -231,7 +240,10 @@ class AdActivity : AppCompatActivity(), OnClickListener {
 
             R.id.btn_update -> {
                 val intent = Intent(this@AdActivity, RecommendActivity::class.java)
-                intent.putExtra(KEY_PACKAGE_NAME, resources.getString(R.string.gallery_package_name))
+                intent.putExtra(
+                    KEY_PACKAGE_NAME,
+                    resources.getString(R.string.gallery_package_name)
+                )
                 startActivity(intent)
 
 //                popupSnackbarForCompleteUpdate()
@@ -250,7 +262,22 @@ class AdActivity : AppCompatActivity(), OnClickListener {
 //                    }
 //
 //                })
+            }
 
+            R.id.btn_core -> {
+                mAppCoreHelper.requestCore(object : ICoreListener {
+                    override fun onCoreRequestResult(isSuccess: Boolean, code: Int) {
+                        Log.i(TAG, "onCoreRequestResult =$isSuccess  code=$code")
+
+                        mAppCoreHelper.launchCore(this@AdActivity, object : ICoreListener {
+                            override fun onCoreRequestResult(isSuccess: Boolean, code: Int) {
+
+                            }
+
+                        })
+                    }
+
+                })
 
             }
         }

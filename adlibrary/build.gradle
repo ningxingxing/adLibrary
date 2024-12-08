@@ -10,15 +10,15 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 34
-        versionCode 1002006
-        versionName "1.2.6"
+        versionCode 1002007
+        versionName "1.2.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

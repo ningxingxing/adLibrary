@@ -41,6 +41,16 @@ class AppCoreHelper(context: Context) {
         }
     }
 
+    fun launchCore(activity: Activity,listener: ICoreListener) {
+        if (mReviewInfo == null) {
+            Log.i(TAG, "launchCore mReviewInfo is null")
+        }
+        val flow = manager.launchReviewFlow(activity, mReviewInfo!!)
+        flow.addOnCompleteListener { _ ->
+            listener.onCoreRequestResult(true,flow.hashCode())
+        }
+    }
+
     /**
      * 检查是否已经评分完成
      */
