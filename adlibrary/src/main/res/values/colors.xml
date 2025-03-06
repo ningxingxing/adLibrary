@@ -19,4 +19,5 @@
 
     <color name="ads_bg_color">#FAFAFA</color>
     <color name="ads_icon_color">#FF000000</color>
+    <color name="ads_status_bar_color">#FAFAFA</color>
 </resources>
