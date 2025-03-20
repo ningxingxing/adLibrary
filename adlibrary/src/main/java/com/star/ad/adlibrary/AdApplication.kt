@@ -11,11 +11,15 @@ import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.MultiDex
 import com.google.android.gms.ads.MobileAds
+import com.star.ad.adlibrary.coroutine.launchDefault
+import com.star.ad.adlibrary.coroutine.launchIO
+import com.star.ad.adlibrary.coroutine.launchMain
 import com.star.ad.adlibrary.manager.AppOpenAdManager
 
-open class AdApplication: Application() , Application.ActivityLifecycleCallbacks , LifecycleObserver {
+open class AdApplication : Application(), Application.ActivityLifecycleCallbacks,
+    LifecycleObserver {
 
-    companion object{
+    companion object {
         const val TAG = "AdApplication"
     }
 
@@ -32,10 +36,18 @@ open class AdApplication: Application() , Application.ActivityLifecycleCallbacks
         super.onCreate()
         registerActivityLifecycleCallbacks(this)
 
-        MobileAds.initialize(this) {}
+        launchMain {
+            initAds()
+        }
+
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
 
+    }
 
+    private suspend fun initAds() = launchIO {
+        MobileAds.initialize(this@AdApplication) {
+            Log.i(TAG,"initAds success")
+        }
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
@@ -68,11 +80,10 @@ open class AdApplication: Application() , Application.ActivityLifecycleCallbacks
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onMoveToForeground() {
-        Log.e(TAG,"onMoveToForeground ")
+        Log.e(TAG, "onMoveToForeground ")
 
-       // currentActivity?.let { appOpenAdManager.showAdIfAvailable(it) }
+        // currentActivity?.let { appOpenAdManager.showAdIfAvailable(it) }
     }
-
 
 
 }
