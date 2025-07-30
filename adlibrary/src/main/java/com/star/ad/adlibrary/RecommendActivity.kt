@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.star.ad.adlibrary.constants.KEY_PACKAGE_NAME
+import com.star.ad.adlibrary.coroutine.launchIO
+import com.star.ad.adlibrary.coroutine.launchMain
 import com.star.ad.adlibrary.databinding.ActivityRecommendBinding
 import com.star.ad.adlibrary.helper.RecommendHelper
 import com.star.ad.adlibrary.model.RecommendData
@@ -39,7 +41,10 @@ class RecommendActivity : AppCompatActivity(), View.OnClickListener,
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         enableEdgeToEdge()
-        WindowInsetsUtils.setOnApplyWindowInsetsListener(binding.root, WindowInsetsUtils.SET_WINDOW_DEFAULT)
+        WindowInsetsUtils.setOnApplyWindowInsetsListener(
+            binding.root,
+            WindowInsetsUtils.SET_WINDOW_DEFAULT
+        )
         WindowInsetsControllerCompat(window, window.decorView).apply {
             isAppearanceLightStatusBars = true // 设置状态栏图标为深色
         }
@@ -47,22 +52,22 @@ class RecommendActivity : AppCompatActivity(), View.OnClickListener,
         initData()
     }
 
-    private fun initData() {
+    private fun initData() = launchMain {
         mPackageName = intent.getStringExtra(KEY_PACKAGE_NAME)
 
-        binding.ivAdsBack.setOnClickListener(this)
-        val gridLayout = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
+        binding.ivAdsBack.setOnClickListener(this@RecommendActivity)
+        val gridLayout = GridLayoutManager(this@RecommendActivity, 2, RecyclerView.VERTICAL, false)
         binding.recycler.layoutManager = gridLayout
-        mRecommendAdapter = RecommendAdapter(this)
+        mRecommendAdapter = RecommendAdapter(this@RecommendActivity)
         binding.recycler.adapter = mRecommendAdapter
-        mRecommendAdapter?.setOnIBridgeAllListener(this)
+        mRecommendAdapter?.setOnIBridgeAllListener(this@RecommendActivity)
         loadData()
         mRecommendAdapter?.bindAllData(recommendList)
         Log.i(TAG, "recommendList=${recommendList.size} mPackageName=$mPackageName")
 
     }
 
-    private fun loadData() {
+    private suspend fun loadData() = launchIO {
         val packageNames = arrayOf(
             resources.getString(R.string.eq_package_name),
             resources.getString(R.string.music_package_name),
