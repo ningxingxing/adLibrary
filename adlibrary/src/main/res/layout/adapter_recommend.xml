@@ -8,42 +8,34 @@
     android:layout_gravity="center"
     android:layout_marginStart="10dp">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/ll_adapter_recommend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingEnd="5dp"
-        android:background="?selectableItemBackgroundBorderless"
-        android:gravity="center"
-        android:orientation="vertical"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_adapter_ads_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlSymmetry">
+        app:srcCompat="@drawable/ic_ads" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_adapter_ads_icon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/ic_ads" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_adapter_ads_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="2222"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_adapter_ads_icon" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_adapter_ads_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="2222"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/ll_adapter_recommend"
-        app:layout_constraintTop_toTopOf="@+id/ll_adapter_recommend"
+        app:layout_constraintEnd_toEndOf="@+id/iv_adapter_ads_icon"
+        app:layout_constraintTop_toTopOf="@+id/iv_adapter_ads_icon"
         app:srcCompat="@drawable/ic_ads_hot" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
