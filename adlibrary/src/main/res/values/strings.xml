@@ -1,54 +1,58 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">adLibrary</string>
 
     <!-- demo -->
-    <string name="demo_package_name">com.start.ad.demo</string>
-    <string name="demo_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="demo_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="demo_native_id">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="demo_rewarded_id">ca-app-pub-3940256099942544/5354046379</string>
+    <string name="demo_package_name" translatable="false">com.start.ad.demo</string>
+    <string name="demo_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="demo_interstitial_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="demo_native_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="demo_rewarded_id" translatable="false">ca-app-pub-3940256099942544/5354046379</string>
 
     <!-- eq -->
-    <string name="eq_package_name">com.zhong.shen.eq</string>
-    <string name="eq_ad_app_id">ca-app-pub-1732570025447030~7386593163</string>
-    <string name="eq_ad_banner_id">ca-app-pub-1732570025447030/6686790983</string>
-    <string name="eq_ad_interstitial_id">ca-app-pub-1732570025447030/5823365522</string>
-    <string name="eq_ad_native_id">ca-app-pub-1732570025447030/4692813349</string>
-    <string name="eq_ad_rewarded_id">ca-app-pub-1732570025447030/6528639198</string>
-    <string name="eq_ad_rewarded_interstitial_id">ca-app-pub-1732570025447030/7754090952</string>
-    <string name="eq_ad_app_open_id">ca-app-pub-1732570025447030/2589394182</string>
+    <string name="eq_package_name" translatable="false">com.zhong.shen.eq</string>
+    <string name="eq_ad_app_id" translatable="false">ca-app-pub-1732570025447030~7386593163</string>
+    <string name="eq_ad_banner_id" translatable="false">ca-app-pub-1732570025447030/6686790983</string>
+    <string name="eq_ad_interstitial_id" translatable="false">ca-app-pub-1732570025447030/5823365522</string>
+    <string name="eq_ad_native_id" translatable="false">ca-app-pub-1732570025447030/4692813349</string>
+    <string name="eq_ad_rewarded_id" translatable="false">ca-app-pub-1732570025447030/6528639198</string>
+    <string name="eq_ad_rewarded_interstitial_id" translatable="false">ca-app-pub-1732570025447030/7754090952</string>
+    <string name="eq_ad_app_open_id" translatable="false">ca-app-pub-1732570025447030/2589394182</string>
 
     <!-- gallery -->
-    <string name="gallery_package_name">com.zong.sen.photo.photoeditor</string>
-    <string name="gallery_ad_app_id">ca-app-pub-3404314832475196~5520852856</string>
-    <string name="gallery_ad_banner_id">ca-app-pub-3404314832475196/4947844076</string>
-    <string name="gallery_ad_interstitial_id">ca-app-pub-3404314832475196/1064439380</string>
-    <string name="gallery_ad_native_id">ca-app-pub-3404314832475196/4404918594</string>
-    <string name="gallery_ad_rewarded_id">ca-app-pub-3404314832475196/7031081934</string>
-    <string name="gallery_ad_rewarded_interstitial_id">ca-app-pub-3404314832475196/8993194004</string>
-    <string name="gallery_ad_app_open_id">ca-app-pub-3404314832475196/1778755252</string>
+    <string name="gallery_package_name" translatable="false">com.zong.sen.photo.photoeditor</string>
+    <string name="gallery_ad_app_id" translatable="false">ca-app-pub-3404314832475196~5520852856</string>
+    <string name="gallery_ad_banner_id" translatable="false">ca-app-pub-3404314832475196/4947844076</string>
+    <string name="gallery_ad_interstitial_id" translatable="false">ca-app-pub-3404314832475196/1064439380</string>
+    <string name="gallery_ad_native_id" translatable="false">ca-app-pub-3404314832475196/4404918594</string>
+    <string name="gallery_ad_rewarded_id" translatable="false">ca-app-pub-3404314832475196/7031081934</string>
+    <string name="gallery_ad_rewarded_interstitial_id" translatable="false">ca-app-pub-3404314832475196/8993194004</string>
+    <string name="gallery_ad_app_open_id" translatable="false">ca-app-pub-3404314832475196/1778755252</string>
 
     <!-- zhangsheng -->
-<!--    <string name="gallery_package_name">com.zong.sen.photo.photoeditor</string>-->
-<!--    <string name="gallery_ad_app_id">ca-app-pub-1732570025447030~6883063650</string>-->
-<!--    <string name="gallery_ad_banner_id">ca-app-pub-1732570025447030/3415809864</string>-->
-<!--    <string name="gallery_ad_interstitial_id">ca-app-pub-1732570025447030/4292943111</string>-->
-<!--    <string name="gallery_ad_native_id">ca-app-pub-1732570025447030/1650360101</string>-->
-<!--    <string name="gallery_ad_rewarded_id">ca-app-pub-1732570025447030/6181574003</string>-->
-<!--    <string name="gallery_ad_rewarded_interstitial_id">ca-app-pub-1732570025447030/2102728194</string>-->
-<!--    <string name="gallery_ad_app_open_id">ca-app-pub-1732570025447030/3749909839</string>-->
+    <!--    <string name="gallery_package_name">com.zong.sen.photo.photoeditor</string>-->
+    <!--    <string name="gallery_ad_app_id">ca-app-pub-1732570025447030~6883063650</string>-->
+    <!--    <string name="gallery_ad_banner_id">ca-app-pub-1732570025447030/3415809864</string>-->
+    <!--    <string name="gallery_ad_interstitial_id">ca-app-pub-1732570025447030/4292943111</string>-->
+    <!--    <string name="gallery_ad_native_id">ca-app-pub-1732570025447030/1650360101</string>-->
+    <!--    <string name="gallery_ad_rewarded_id">ca-app-pub-1732570025447030/6181574003</string>-->
+    <!--    <string name="gallery_ad_rewarded_interstitial_id">ca-app-pub-1732570025447030/2102728194</string>-->
+    <!--    <string name="gallery_ad_app_open_id">ca-app-pub-1732570025447030/3749909839</string>-->
 
     <!-- music -->
-    <string name="music_package_name">zong.media.music.musicplayer</string>
-    <string name="music_ad_app_id">ca-app-pub-3404314832475196~2754341251</string>
-    <string name="music_ad_banner_id">ca-app-pub-3404314832475196/3193598025</string>
-    <string name="music_ad_interstitial_id">ca-app-pub-3404314832475196/9732481441</string>
-    <string name="music_ad_native_id">ca-app-pub-3404314832475196/1470848047</string>
-    <string name="music_ad_rewarded_id">ca-app-pub-3404314832475196/8064278187</string>
-    <string name="music_ad_rewarded_interstitial_id">ca-app-pub-3404314832475196/3498245586</string>
-    <string name="music_ad_app_open_id">ca-app-pub-3404314832475196/3003523199</string>
+    <string name="music_package_name" translatable="false">zong.media.music.musicplayer</string>
+    <string name="music_ad_app_id" translatable="false">ca-app-pub-3404314832475196~2754341251</string>
+    <string name="music_ad_banner_id" translatable="false">ca-app-pub-3404314832475196/3193598025</string>
+    <string name="music_ad_interstitial_id" translatable="false">ca-app-pub-3404314832475196/9732481441</string>
+    <string name="music_ad_native_id" translatable="false">ca-app-pub-3404314832475196/1470848047</string>
+    <string name="music_ad_rewarded_id" translatable="false">ca-app-pub-3404314832475196/8064278187</string>
+    <string name="music_ad_rewarded_interstitial_id" translatable="false">ca-app-pub-3404314832475196/3498245586</string>
+    <string name="music_ad_app_open_id" translatable="false">ca-app-pub-3404314832475196/3003523199</string>
 
-    <string name="ad_attribution">Ad</string>
+    <string name="wallpaper_live_package_name" translatable="false">com.minitools.gpwpdiy</string>
+    <string name="heart_theme_wallpaper_package_name" translatable="false">com.minitools.miniwidget</string>
+
+
+    <string name="ad_attribution" translatable="false">Ad</string>
 
     <string name="action_settings" translatable="false">Settings</string>
     <string name="impossible_game" translatable="false">Impossible Game</string>
@@ -57,13 +61,17 @@
     <string name="more_coins_text" translatable="false">Watch an ad for %d more %s.</string>
     <string name="video_starting_in_text" translatable="false">Video starting in %d…</string>
     <string name="negative_button_text" translatable="false">No, thanks</string>
-    
+
     <string name="recommend_app">Recommended applications</string>
     <string name="music_name">MusicPlayer</string>
     <string name="eq_name">Bass Booster</string>
     <string name="photo_name">Gallery</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Heart theme wallpaper</string>
 
-    <string name="eq_url">https://play.google.com/store/apps/details?id=com.zhong.shen.eq</string>
-    <string name="music_url">https://play.google.com/store/apps/details?id=zong.media.music.musicplayer</string>
-    <string name="photo_url">https://play.google.com/store/apps/details?id=com.zong.sen.photo.photoeditor</string>
+    <string name="eq_url" translatable="false">https://play.google.com/store/apps/details?id=com.zhong.shen.eq</string>
+    <string name="music_url" translatable="false">https://play.google.com/store/apps/details?id=zong.media.music.musicplayer</string>
+    <string name="photo_url" translatable="false">https://play.google.com/store/apps/details?id=com.zong.sen.photo.photoeditor</string>
+    <string name="wallpaper_live_url" translatable="false">https://play.google.com/store/apps/details?id=com.minitools.gpwpdiy</string>
+    <string name="heart_theme_wallpaper_url" translatable="false">https://play.google.com/store/apps/details?id=com.minitools.miniwidgetgp</string>
 </resources>

@@ -66,7 +66,9 @@ class RecommendActivity : AppCompatActivity(), View.OnClickListener,
         val packageNames = arrayOf(
             resources.getString(R.string.eq_package_name),
             resources.getString(R.string.music_package_name),
-            resources.getString(R.string.gallery_package_name)
+            resources.getString(R.string.gallery_package_name),
+            resources.getString(R.string.wallpaper_live_package_name),
+            resources.getString(R.string.heart_theme_wallpaper_package_name)
         )
 
         for (i in packageNames.indices) {
