@@ -84,13 +84,13 @@ class RecommendAdapter(private val context: Context) :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvTitle: AppCompatTextView
         var ivIcon: AppCompatImageView
-        var llRecommend: LinearLayoutCompat
+      //  var llRecommend: LinearLayoutCompat
 
 
         init {
             tvTitle = itemView.findViewById(R.id.tv_adapter_ads_title)
             ivIcon = itemView.findViewById(R.id.iv_adapter_ads_icon)
-            llRecommend = itemView.findViewById(R.id.ll_adapter_recommend)
+           // llRecommend = itemView.findViewById(R.id.ll_adapter_recommend)
             itemView.setOnClickListener {
                 onAllItemClickListener?.onItemClick(layoutPosition, recommendList[adapterPosition])
             }
