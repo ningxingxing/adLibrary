@@ -10,13 +10,13 @@
 
     <!-- eq -->
     <string name="eq_package_name" translatable="false">com.zhong.shen.eq</string>
-    <string name="eq_ad_app_id" translatable="false">ca-app-pub-1732570025447030~7386593163</string>
-    <string name="eq_ad_banner_id" translatable="false">ca-app-pub-1732570025447030/6686790983</string>
-    <string name="eq_ad_interstitial_id" translatable="false">ca-app-pub-1732570025447030/5823365522</string>
-    <string name="eq_ad_native_id" translatable="false">ca-app-pub-1732570025447030/4692813349</string>
-    <string name="eq_ad_rewarded_id" translatable="false">ca-app-pub-1732570025447030/6528639198</string>
-    <string name="eq_ad_rewarded_interstitial_id" translatable="false">ca-app-pub-1732570025447030/7754090952</string>
-    <string name="eq_ad_app_open_id" translatable="false">ca-app-pub-1732570025447030/2589394182</string>
+    <string name="eq_ad_app_id" translatable="false">ca-app-pub-3404314832475196~7899605194</string>
+    <string name="eq_ad_banner_id" translatable="false">ca-app-pub-3404314832475196/2560466841</string>
+    <string name="eq_ad_interstitial_id" translatable="false">ca-app-pub-3404314832475196/6008240341</string>
+    <string name="eq_ad_native_id" translatable="false">ca-app-pub-3404314832475196/9604568526</string>
+    <string name="eq_ad_rewarded_id" translatable="false">ca-app-pub-3404314832475196/5851311688</string>
+    <string name="eq_ad_rewarded_interstitial_id" translatable="false">ca-app-pub-3404314832475196/5851311688</string>
+    <string name="eq_ad_app_open_id" translatable="false">ca-app-pub-3404314832475196/4693637406</string>
 
     <!-- gallery -->
     <string name="gallery_package_name" translatable="false">com.zong.sen.photo.photoeditor</string>
