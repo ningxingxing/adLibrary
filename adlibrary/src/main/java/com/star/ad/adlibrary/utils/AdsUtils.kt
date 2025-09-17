@@ -17,7 +17,10 @@ object AdsUtils {
         }
 
         when (getCurrentPackageName(context)) {
-
+            //heart
+            resources.getString(R.string.wallpaper_live_package_name) -> {
+                return resources.getString(R.string.heart_ad_banner_id)
+            }
             //eq
             resources.getString(R.string.eq_package_name) -> {
                 return resources.getString(R.string.eq_ad_banner_id)
@@ -49,6 +52,10 @@ object AdsUtils {
         }
 
         when (getCurrentPackageName(context)) {
+            //heart
+            resources.getString(R.string.wallpaper_live_package_name) -> {
+                return resources.getString(R.string.heart_ad_interstitial_id)
+            }
             //eq
             resources.getString(R.string.eq_package_name) -> {
                 return resources.getString(R.string.eq_ad_interstitial_id)
@@ -80,6 +87,11 @@ object AdsUtils {
         }
 
         when (getCurrentPackageName(context)) {
+            //heart
+            context.getString(R.string.wallpaper_live_package_name) -> {
+                return context.getString(R.string.heart_ad_native_id)
+            }
+
             context.getString(R.string.eq_package_name) -> {
                 return context.getString(R.string.eq_ad_native_id)
             }
@@ -108,6 +120,11 @@ object AdsUtils {
         }
 
         when (getCurrentPackageName(context)) {
+            //heart
+            context.getString(R.string.wallpaper_live_package_name) -> {
+                return context.getString(R.string.heart_ad_rewarded_id)
+            }
+
             context.getString(R.string.eq_package_name) -> {
                 return context.getString(R.string.eq_ad_rewarded_id)
             }
@@ -136,6 +153,11 @@ object AdsUtils {
         }
 
         when (getCurrentPackageName(context)) {
+            //heart
+            context.getString(R.string.wallpaper_live_package_name) -> {
+                return context.getString(R.string.heart_ad_rewarded_interstitial_id)
+            }
+
             context.getString(R.string.eq_package_name) -> {
                 return context.getString(R.string.eq_ad_rewarded_interstitial_id)
             }
@@ -165,6 +187,11 @@ object AdsUtils {
         }
 
         when (getCurrentPackageName(context)) {
+            //heart
+            context.getString(R.string.wallpaper_live_package_name) -> {
+                return context.getString(R.string.heart_ad_app_open_id)
+            }
+
             context.getString(R.string.eq_package_name) -> {
                 return context.getString(R.string.eq_ad_app_open_id)
             }
