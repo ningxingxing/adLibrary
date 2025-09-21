@@ -21,6 +21,11 @@ object AdsUtils {
             resources.getString(R.string.wallpaper_live_package_name) -> {
                 return resources.getString(R.string.heart_ad_banner_id)
             }
+            //wallpaper
+            resources.getString(R.string.wallpaper_package_name) -> {
+                return resources.getString(R.string.wallpaper_ad_banner_id)
+            }
+
             //eq
             resources.getString(R.string.eq_package_name) -> {
                 return resources.getString(R.string.eq_ad_banner_id)
@@ -55,6 +60,11 @@ object AdsUtils {
             //heart
             resources.getString(R.string.wallpaper_live_package_name) -> {
                 return resources.getString(R.string.heart_ad_interstitial_id)
+            }
+
+            //wallpaper
+            resources.getString(R.string.wallpaper_package_name) -> {
+                return resources.getString(R.string.wallpaper_ad_interstitial_id)
             }
             //eq
             resources.getString(R.string.eq_package_name) -> {
@@ -91,6 +101,10 @@ object AdsUtils {
             context.getString(R.string.wallpaper_live_package_name) -> {
                 return context.getString(R.string.heart_ad_native_id)
             }
+            //wallpaper
+            context.getString(R.string.wallpaper_package_name) -> {
+                return context.getString(R.string.wallpaper_ad_native_id)
+            }
 
             context.getString(R.string.eq_package_name) -> {
                 return context.getString(R.string.eq_ad_native_id)
@@ -123,6 +137,11 @@ object AdsUtils {
             //heart
             context.getString(R.string.wallpaper_live_package_name) -> {
                 return context.getString(R.string.heart_ad_rewarded_id)
+            }
+
+            //wallpaper
+            context.getString(R.string.wallpaper_package_name) -> {
+                return context.getString(R.string.wallpaper_ad_rewarded_id)
             }
 
             context.getString(R.string.eq_package_name) -> {
@@ -158,6 +177,11 @@ object AdsUtils {
                 return context.getString(R.string.heart_ad_rewarded_interstitial_id)
             }
 
+            //wallpaper
+            context.getString(R.string.wallpaper_package_name) -> {
+                return context.getString(R.string.wallpaper_ad_rewarded_interstitial_id)
+            }
+
             context.getString(R.string.eq_package_name) -> {
                 return context.getString(R.string.eq_ad_rewarded_interstitial_id)
             }
@@ -190,6 +214,10 @@ object AdsUtils {
             //heart
             context.getString(R.string.wallpaper_live_package_name) -> {
                 return context.getString(R.string.heart_ad_app_open_id)
+            }
+            //wallpaper
+            context.getString(R.string.wallpaper_package_name) -> {
+                return context.getString(R.string.wallpaper_ad_app_open_id)
             }
 
             context.getString(R.string.eq_package_name) -> {

@@ -17,6 +17,8 @@ import com.star.ad.adlibrary.interfaces.OnShowAdCompleteListener
 import com.star.ad.adlibrary.manager.AppOpenAdManager
 import com.star.ad.adlibrary.manager.ShowAdsHelper.showBannerAds
 import com.star.ad.adlibrary.thread.ScheduledExecutor
+import com.star.ad.adlibrary.utils.WindowInsetsUtils
+import com.star.ad.adlibrary.utils.WindowInsetsUtils.SET_WINDOW_DEFAULT
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
@@ -35,7 +37,7 @@ class MainActivity : ComponentActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        WindowInsetsUtils.setOnApplyWindowInsetsListener(window.decorView, SET_WINDOW_DEFAULT)
 
         initView()
     }
