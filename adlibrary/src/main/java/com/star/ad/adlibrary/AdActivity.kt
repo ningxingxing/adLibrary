@@ -202,7 +202,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
             }
 
             R.id.btn_load_reward_ad -> {
-                initRewarded(this@AdActivity, true)
+                initRewarded(this@AdActivity, isDebug = true)
 
             }
 
@@ -220,11 +220,11 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                         Log.d(TAG, "onAdDismissed")
                     }
 
-                }, true)
+                }, isDebug = true)
             }
 
             R.id.btn_load_reward_interstitial_ad -> {
-                loadRewardedInterstitialAd(this@AdActivity, true)
+                loadRewardedInterstitialAd(this@AdActivity, isDebug = true)
             }
 
             R.id.btn_show_reward_interstitial_ad -> {

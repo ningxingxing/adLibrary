@@ -56,7 +56,7 @@ object ShowAdsHelper {
 
 
     private fun isCanShowAds(): Boolean {
-        if (!isShowAds){
+        if (!isShowAds) {
             return false
         }
 
@@ -75,7 +75,7 @@ object ShowAdsHelper {
     /**
      * 是否显示广告
      */
-    fun setShowAds(isShowAd:Boolean){
+    fun setShowAds(isShowAd: Boolean) {
         this.isShowAds = isShowAd
     }
 
@@ -152,7 +152,7 @@ object ShowAdsHelper {
      * 加载插页广告
      */
     private fun loadInterstitialAds(context: Activity, isFirst: Boolean, isDebug: Boolean = false) {
-        var adRequest = AdRequest.Builder().build()
+        val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(
             context,
             getInterstitialId(context, isDebug),
@@ -184,9 +184,10 @@ object ShowAdsHelper {
     fun showInterstitialAds(
         activity: Activity,
         listener: OnInterstitialAdListener,
+        isImmediately: Boolean = false,
         isDebug: Boolean = false
     ) {
-        if (!isCanShowAds()) {
+        if (!isCanShowAds() && !isImmediately) {
             listener.onComplete()
             return
         }
@@ -356,6 +357,7 @@ object ShowAdsHelper {
         rewardAmount: Int,
         rewardType: String,
         listener: OnRewardListener,
+        isImmediately: Boolean = false,
         isDebug: Boolean = false
     ) {
         val dialog: AdDialogFragment = AdDialogFragment.newInstance(rewardAmount, rewardType)
@@ -363,7 +365,7 @@ object ShowAdsHelper {
             object : AdDialogFragment.AdDialogInteractionListener {
                 override fun onShowAd() {
                     // Log.d(MainActivity.TAG, "The rewarded interstitial ad is starting.")
-                    showRewardedInterstitialVideo(activity, listener, isDebug)
+                    showRewardedInterstitialVideo(activity, listener, isImmediately, isDebug)
                 }
 
                 override fun onCancelAd() {
@@ -379,6 +381,7 @@ object ShowAdsHelper {
         activity: AppCompatActivity,
         isShowDialog: Boolean,
         listener: OnRewardListener,
+        isImmediately: Boolean = false,
         isDebug: Boolean = false
     ): Boolean {
 
@@ -389,13 +392,13 @@ object ShowAdsHelper {
         val rewardType = rewardItem?.type
 
         if (rewardAmount == null || rewardType == null) return false
-        if (!isCanShowAds()) {
+        if (!isCanShowAds() && !isImmediately) {
             return false
         }
         if (isShowDialog) {
-            introduceVideoAd(activity, rewardAmount, rewardType, listener, isDebug)
+            introduceVideoAd(activity, rewardAmount, rewardType, listener, isImmediately, isDebug)
         } else {
-            showRewardedInterstitialVideo(activity, listener, isDebug)
+            showRewardedInterstitialVideo(activity, listener, isImmediately, isDebug)
         }
         return true
     }
@@ -403,9 +406,10 @@ object ShowAdsHelper {
     private fun showRewardedInterstitialVideo(
         activity: Activity,
         listener: OnRewardListener,
+        isImmediately: Boolean = false,
         isDebug: Boolean = false
     ) {
-        if (!isCanShowAds()) {
+        if (!isCanShowAds() && !isImmediately) {
             listener.onAdDismissed()
             return
         }
@@ -468,7 +472,8 @@ object ShowAdsHelper {
      */
 
     fun loadRewardedInterstitialAd(context: Context, isDebug: Boolean = false) {
-        RewardedInterstitialAd.load(context, getRewardInterstitialId(context, isDebug),
+        RewardedInterstitialAd.load(
+            context, getRewardInterstitialId(context, isDebug),
             AdRequest.Builder().build(), object : RewardedInterstitialAdLoadCallback() {
                 override fun onAdLoaded(ad: RewardedInterstitialAd) {
                     Log.d(TAG, "loadRewardedInterstitialAd Ad was loaded.")
