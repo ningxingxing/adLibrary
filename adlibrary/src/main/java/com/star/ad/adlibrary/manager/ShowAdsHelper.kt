@@ -440,6 +440,16 @@ object ShowAdsHelper {
                 listener.onAdFailedToShow()
             }
 
+            override fun onAdImpression() {
+                super.onAdImpression()
+                Log.d(TAG, "showRewardedVideo onAdImpression: ")
+            }
+
+            override fun onAdClicked() {
+                super.onAdClicked()
+                Log.d(TAG, "showRewardedVideo onAdClicked: ")
+            }
+
             /** Called when full screen content is dismissed.  */
             override fun onAdDismissedFullScreenContent() {
                 // Don't forget to set the ad reference to null so you
@@ -458,12 +468,17 @@ object ShowAdsHelper {
         ) { rewardItem -> // Handle the reward.
             Log.d(TAG, "showRewardedVideo The user earned the reward.")
             addCoins(rewardItem.amount)
+            listener.onGetReward(rewardItem.amount)
         }
     }
 
     private fun addCoins(coins: Int) {
         mCoinCount += coins
         Log.d(TAG, "mCoinCount=$mCoinCount")
+    }
+
+    fun getCoins(): Int {
+        return mCoinCount
     }
 
 

@@ -8,4 +8,6 @@ interface OnRewardListener {
 
     fun onAdDismissed(){}
 
+    fun onGetReward(coins: Int){}
+
 }
