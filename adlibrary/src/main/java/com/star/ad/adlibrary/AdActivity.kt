@@ -220,7 +220,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                         Log.d(TAG, "onAdDismissed")
                     }
 
-                }, isDebug = true)
+                }, isDebug = true, isImmediately = true)
             }
 
             R.id.btn_load_reward_interstitial_ad -> {

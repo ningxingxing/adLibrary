@@ -10,8 +10,6 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 35
-        versionCode 1005005
-        versionName "1.5.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,22 +35,22 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.20"
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.2.10"
+    implementation 'androidx.core:core-ktx:1.15.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.10.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    api 'com.google.android.gms:play-services-ads:22.2.0'
+    api 'com.google.android.gms:play-services-ads:24.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
 
-    def lifecycle_version = '2.3.1'
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+    def lifecycle_version = '2.6.2'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.3"
+    implementation "androidx.lifecycle:lifecycle-process:2.8.3"
    // kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     implementation("com.google.android.play:app-update:2.1.0")
@@ -62,4 +60,7 @@ dependencies {
 
     api "androidx.activity:activity-ktx:1.10.1"
     api "androidx.fragment:fragment-ktx:1.8.1"
+
+//    implementation 'com.android.billingclient:billing:8.1.0'
+//    implementation 'android.arch.persistence.room:guava:1.1.1'
 }
