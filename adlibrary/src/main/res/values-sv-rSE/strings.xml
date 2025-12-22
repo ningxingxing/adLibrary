@@ -1,0 +1,16 @@
+<resources>
+    <string name="recommend_app">Rekommenderade appar</string>
+    <string name="music_name">Musikspelare</string>
+    <string name="eq_name">Bas equalizer</string>
+    <string name="photo_name">Galleri</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Hjärtats tema bakgrund</string>
+
+    <string name="core_us">Betygsätt oss</string>
+    <string name="core_us_content">Om du gillar vår app, vänligen betygsätt oss!</string>
+    <string name="core_evaluate">Betygsätt</string>
+    <string name="core_review_later">Granska senare</string>
+
+
+
+</resources>

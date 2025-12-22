@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">Рекомендовані додатки</string>
+    <string name="music_name">Музичний програвач</string>
+    <string name="eq_name">Басовий еквалайзер</string>
+    <string name="photo_name">Галерея</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Шпалери з темою серця</string>
+
+    <string name="core_us">Оцініть нас</string>
+    <string name="core_us_content">Якщо вам подобається наш додаток, будь ласка, оцініть нас!</string>
+    <string name="core_evaluate">Оцінити</string>
+    <string name="core_review_later">Оцінити пізніше</string>
+
+
+</resources>

@@ -3,4 +3,9 @@
     <string name="music_name">MusicPlayer</string>
     <string name="eq_name">Bass Booster</string>
     <string name="photo_name">Gallery</string>
+    <string name="core_us">Bewerten Sie uns</string>
+    <string name="core_us_content">Wenn Ihnen unsere App gefällt, bewerten Sie uns bitte!</string>
+    <string name="core_evaluate">Bewerten</string>
+    <string name="core_review_later">Später bewerten</string>
+
 </resources>

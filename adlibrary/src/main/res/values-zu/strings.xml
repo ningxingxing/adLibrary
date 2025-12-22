@@ -1,0 +1,14 @@
+<resources>
+    <string name="recommend_app">Izinhlelo zokusebenza ezinconywayo</string>
+    <string name="music_name">Isidlali somculo</string>
+    <string name="eq_name">I-EQ yobude</string>
+    <string name="photo_name">Igalari</string>
+    <string name="wallpaper_live_name">I-Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">I-Wallpaper Yethimu Yokuhleka</string>
+
+    <string name="core_us">Silinganise</string>
+    <string name="core_us_content">Uma uthanda uhlelo lwethu, sicela usihlangele!</string>
+    <string name="core_evaluate">Hlola</string>
+    <string name="core_review_later">Buyekeza Kamuva</string>
+
+</resources>

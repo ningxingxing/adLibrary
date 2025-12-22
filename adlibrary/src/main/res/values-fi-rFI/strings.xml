@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">Suositellut sovellukset</string>
+    <string name="music_name">Musiikkisoitin</string>
+    <string name="eq_name">Bassojen taajuuskorjain</string>
+    <string name="photo_name">Galleria</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Sydämen teema taustakuva</string>
+
+    <string name="core_us">Arvioi meidät</string>
+    <string name="core_us_content">Jos pidät sovelluksestamme, arvioi meidät!</string>
+    <string name="core_evaluate">Arvioi</string>
+    <string name="core_review_later">Arvioi myöhemmin</string>
+
+
+</resources>

@@ -3,4 +3,9 @@
     <string name="music_name">MusicPlayer</string>
     <string name="eq_name">Bass Booster</string>
     <string name="photo_name">Galeri</string>
+    <string name="core_us">Nilai Kami</string>
+    <string name="core_us_content">Jika anda suka aplikasi kami, sila nilaikan kami!</string>
+    <string name="core_evaluate">Nilai</string>
+    <string name="core_review_later">Semak Nanti</string>
+
 </resources>

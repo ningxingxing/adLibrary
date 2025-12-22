@@ -1,0 +1,16 @@
+<resources>
+    <string name="recommend_app">Polecane aplikacje</string>
+    <string name="music_name">Odtwarzacz muzyki</string>
+    <string name="eq_name">Korektor basów</string>
+    <string name="photo_name">Galeria</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Tapeta z motywem serca</string>
+
+    <string name="core_us">Oceń nas</string>
+    <string name="core_us_content">Jeśli podoba Ci się nasza aplikacja, oceń nas!</string>
+    <string name="core_evaluate">Oceń</string>
+    <string name="core_review_later">Oceń później</string>
+
+
+
+</resources>

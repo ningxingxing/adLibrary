@@ -1,0 +1,16 @@
+<resources>
+    <string name="recommend_app">Aplikasi yang Direkomendasikan</string>
+    <string name="music_name">Pemutar Musik</string>
+    <string name="eq_name">Ekualiser Bass</string>
+    <string name="photo_name">Galeri</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Wallpaper Tema Hati</string>
+
+    <string name="core_us">Nilai Kami</string>
+    <string name="core_us_content">Jika Anda menyukai aplikasi kami, silakan nilai kami!</string>
+    <string name="core_evaluate">Nilai</string>
+    <string name="core_review_later">Tinjau Nanti</string>
+
+
+
+</resources>

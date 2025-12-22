@@ -3,4 +3,9 @@
     <string name="music_name">MusicPlayer</string>
     <string name="eq_name">베이스 부스터</string>
     <string name="photo_name">갤러리</string>
+    <string name="core_us">평가하기</string>
+    <string name="core_us_content">앱이 마음에 드신다면 평가해 주세요!</string>
+    <string name="core_evaluate">평가</string>
+    <string name="core_review_later">나중에 평가</string>
+
 </resources>

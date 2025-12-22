@@ -5,4 +5,9 @@
     <string name="photo_name">图库</string>
     <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
     <string name="heart_theme_wallpaper_name">心动主题壁纸</string>
+
+    <string name="core_us">评价我们</string>
+    <string name="core_us_content">如果您喜欢我们的应用，请评价我们！</string>
+    <string name="core_evaluate">评价</string>
+    <string name="core_review_later">稍后评价</string>
 </resources>

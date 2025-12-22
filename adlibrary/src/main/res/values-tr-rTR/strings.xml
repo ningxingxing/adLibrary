@@ -3,4 +3,9 @@
     <string name="music_name">Müzik Çalar</string>
     <string name="eq_name">Bas Güçlendirici</string>
     <string name="photo_name">Galeri</string>
+    <string name="core_us">Bizi Değerlendir</string>
+    <string name="core_us_content">Uygulamamızı beğendiyseniz, lütfen bizi değerlendirin!</string>
+    <string name="core_evaluate">Değerlendir</string>
+    <string name="core_review_later">Sonra Değerlendir</string>
+
 </resources>

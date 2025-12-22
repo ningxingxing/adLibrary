@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">Anbefalede apps</string>
+    <string name="music_name">Musikafspiller</string>
+    <string name="eq_name">Bas Equalizer</string>
+    <string name="photo_name">Galleri</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Hjertets Tema Tapet</string>
+
+    <string name="core_us">Bedøm os</string>
+    <string name="core_us_content">Hvis du kan lide vores app, bedøm os venligst!</string>
+    <string name="core_evaluate">Bedøm</string>
+    <string name="core_review_later">Gennemgå senere</string>
+
+
+</resources>

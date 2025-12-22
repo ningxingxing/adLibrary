@@ -3,4 +3,9 @@
     <string name="music_name">Pemutar Musik</string>
     <string name="eq_name">Penguat Bass</string>
     <string name="photo_name">Galeri</string>
+    <string name="core_us">Nilai Kami</string>
+    <string name="core_us_content">Jika Anda menyukai aplikasi kami, silakan beri nilai kepada kami!</string>
+    <string name="core_evaluate">Nilai</string>
+    <string name="core_review_later">Tinjau Nanti</string>
+
 </resources>

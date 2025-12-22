@@ -3,4 +3,9 @@
     <string name="music_name">Reprodutor de música</string>
     <string name="eq_name">Reforço de graves</string>
     <string name="photo_name">Galeria</string>
+    <string name="core_us">Avalie-nos</string>
+    <string name="core_us_content">Se gostar da nossa aplicação, por favor avalie-nos!</string>
+    <string name="core_evaluate">Avaliar</string>
+    <string name="core_review_later">Avaliar mais tarde</string>
+
 </resources>

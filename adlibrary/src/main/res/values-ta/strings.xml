@@ -1,0 +1,16 @@
+<resources>
+    <string name="recommend_app">பரிந்துரைக்கப்பட்ட செயலிகள்</string>
+    <string name="music_name">இசை இயக்கி</string>
+    <string name="eq_name">பேஸ் ஈக்வலைசர்</string>
+    <string name="photo_name">கேலரி</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">ஹார்ட் தீம் வால்பேப்பர்</string>
+
+    <string name="core_us">எங்களை மதிப்பிடுங்கள்</string>
+    <string name="core_us_content">எங்கள் செயலியை விரும்பினால், தயவுசெய்து எங்களை மதிப்பிடுங்கள்!</string>
+    <string name="core_evaluate">மதிப்பிடு</string>
+    <string name="core_review_later">பின்னர் மதிப்பாய்வு செய்யவும்</string>
+
+
+
+</resources>

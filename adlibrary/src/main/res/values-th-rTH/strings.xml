@@ -3,4 +3,8 @@
     <string name="music_name">เครื่องเล่นเพลง</string>
     <string name="eq_name">Bass Booster</string>
     <string name="photo_name">แกลเลอรี</string>
+    <string name="core_us">ให้คะแนนเรา</string>
+    <string name="core_us_content">หากคุณชอบแอปของเรา โปรดให้คะแนนเรา!</string>
+    <string name="core_evaluate">ให้คะแนน</string>
+    <string name="core_review_later">ตรวจสอบภายหลัง</string>
 </resources>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="recommend_app">Aplicații recomandate</string>
+    <string name="music_name">Player muzical</string>
+    <string name="eq_name">Egalizator bas</string>
+    <string name="photo_name">Galerie</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Fundal cu temă inimioară</string>
+
+    <string name="core_us">Evaluează-ne</string>
+    <string name="core_us_content">Dacă îți place aplicația noastră, te rugăm să ne evaluezi!</string>
+    <string name="core_evaluate">Evaluează</string>
+    <string name="core_review_later">Evaluează mai târziu</string>
+
+
+
+
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">Ajánlott alkalmazások</string>
+    <string name="music_name">Zenelejátszó</string>
+    <string name="eq_name">Mélyhang kiegyenlítő</string>
+    <string name="photo_name">Galéria</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Szív témájú háttérkép</string>
+
+    <string name="core_us">Értékeljen minket</string>
+    <string name="core_us_content">Ha tetszik az alkalmazásunk, kérjük, értékeljen minket!</string>
+    <string name="core_evaluate">Értékelés</string>
+    <string name="core_review_later">Későbbi értékelés</string>
+
+
+</resources>

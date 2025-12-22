@@ -85,12 +85,18 @@
     <string name="music_name">MusicPlayer</string>
     <string name="eq_name">Bass Booster</string>
     <string name="photo_name">Gallery</string>
-    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
-    <string name="heart_theme_wallpaper_name">Heart theme wallpaper</string>
+    <string name="wallpaper_live_name" translatable="false">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name" translatable="false">Heart theme wallpaper</string>
 
     <string name="eq_url" translatable="false">https://play.google.com/store/apps/details?id=com.zhong.shen.eq</string>
     <string name="music_url" translatable="false">https://play.google.com/store/apps/details?id=zong.media.music.musicplayer</string>
     <string name="photo_url" translatable="false">https://play.google.com/store/apps/details?id=com.zong.sen.photo.photoeditor</string>
     <string name="wallpaper_live_url" translatable="false">https://play.google.com/store/apps/details?id=com.minitools.gpwpdiy</string>
     <string name="heart_theme_wallpaper_url" translatable="false">https://play.google.com/store/apps/details?id=com.minitools.miniwidgetgp</string>
+
+    <string name="core_us">Rate Us</string>
+    <string name="core_us_content">If you like our app, please rate us!</string>
+    <string name="core_evaluate">Rate</string>
+    <string name="core_review_later">Review Later</string>
+
 </resources>

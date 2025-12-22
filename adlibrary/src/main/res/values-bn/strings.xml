@@ -2,5 +2,10 @@
     <string name="recommend_app">প্রস্তাবিত অ্যাপ্লিকেশন</string>
     <string name="music_name">মিউজিক প্লেয়ার</string>
     <string name="eq_name">বেস বুস্টার</string>
-    <string name="photo_name">গ্যালারি</string>৷
+    <string name="photo_name">গ্যালারি</string>
+    <string name="core_us">আমাদের রেট করুন</string>
+    <string name="core_us_content">আপনি যদি আমাদের অ্যাপ্লিকেশনটি পছন্দ করেন তবে আমাদের রেট করুন!</string>
+    <string name="core_evaluate">রেট করুন</string>
+    <string name="core_review_later">পরে পর্যালোচনা করুন</string>
+
 </resources>

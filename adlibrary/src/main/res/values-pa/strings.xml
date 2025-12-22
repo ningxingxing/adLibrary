@@ -1,0 +1,17 @@
+<resources>
+    <string name="recommend_app">ਸੁਝਾਏ ਗਏ ਐਪਸ</string>
+    <string name="music_name">ਸੰਗੀਤ ਪਲੇਅਰ</string>
+    <string name="eq_name">ਬੱਸ ਈਕੋਲਾਈਜ਼ਰ</string>
+    <string name="photo_name">ਗੈਲਰੀ</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">ਹਾਰਟ ਥੀਮ ਵਾਲਪੇਪਰ</string>
+
+    <string name="core_us">ਸਾਨੂੰ ਰੇਟ ਕਰੋ</string>
+    <string name="core_us_content">ਜੇਕਰ ਤੁਸੀਂ ਸਾਡੀ ਐਪ ਪਸੰਦ ਕਰਦੇ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਸਾਨੂੰ ਰੇਟ ਕਰੋ!</string>
+    <string name="core_evaluate">ਰੇਟ ਕਰੋ</string>
+    <string name="core_review_later">ਬਾਅਦ ਵਿੱਚ ਸਮੀਖਿਆ ਕਰੋ</string>
+
+
+
+
+</resources>

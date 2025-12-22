@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
+import com.star.ad.adlibrary.R
 
 class RatingHelper(private val context: Context, private val preferences: SharedPreferences) {
 
@@ -44,13 +45,13 @@ class RatingHelper(private val context: Context, private val preferences: Shared
 
     fun showRatingDialog(activity: Activity) {
         AlertDialog.Builder(activity)
-            .setTitle("评价我们")
-            .setMessage("如果您喜欢我们的应用，请评价我们！")
-            .setPositiveButton("评价") { _, _ ->
+            .setTitle(activity.getString(R.string.core_us))
+            .setMessage(context.getString(R.string.core_us_content))
+            .setPositiveButton(context.getString(R.string.core_evaluate)) { _, _ ->
                 // 使用In-App Review或跳转到Play商店
                 requestReviewOrOpenStore(activity)
             }
-            .setNeutralButton("稍后评价") { _, _ ->
+            .setNeutralButton(context.getString(R.string.core_review_later)) { _, _ ->
                 preferences.edit {
                     putBoolean(PREF_DONT_SHOW, true) }
             }

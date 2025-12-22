@@ -1,11 +1,16 @@
 <resources>
     <string name="recommend_app">Aplicaciones recomendadas</string>
     <string name="music_name">Reproductor de música</string>
-    <string name="eq_name">Amplificador de graves</string>
+    <string name="eq_name">Ecualizador de graves</string>
     <string name="photo_name">Galería</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Fondo de pantalla temático Heart</string>
+
     <string name="core_us">Valóranos</string>
     <string name="core_us_content">¡Si te gusta nuestra aplicación, por favor valóranos!</string>
     <string name="core_evaluate">Valorar</string>
     <string name="core_review_later">Valorar más tarde</string>
+
+
 
 </resources>

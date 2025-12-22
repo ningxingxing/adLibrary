@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">برنامه‌های پیشنهادی</string>
+    <string name="music_name">پخش‌کننده موسیقی</string>
+    <string name="eq_name">اکولایزر باس</string>
+    <string name="photo_name">گالری</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">والپیپر موضوع قلب</string>
+
+    <string name="core_us">امتیاز دهید</string>
+    <string name="core_us_content">اگر از برنامه ما خوشتان آمده، لطفاً به ما امتیاز دهید!</string>
+    <string name="core_evaluate">امتیاز دهی</string>
+    <string name="core_review_later">بعداً بررسی کنید</string>
+
+
+</resources>

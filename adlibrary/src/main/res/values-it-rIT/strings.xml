@@ -3,4 +3,9 @@
     <string name="music_name">Lettore musicale</string>
     <string name="eq_name">Amplificatore di bassi</string>
     <string name="photo_name">Galleria</string>
+    <string name="core_us">Valutaci</string>
+    <string name="core_us_content">Se ti piace la nostra app, per favore valutaci!</string>
+    <string name="core_evaluate">Valuta</string>
+    <string name="core_review_later">Valuta più tardi</string>
+
 </resources>

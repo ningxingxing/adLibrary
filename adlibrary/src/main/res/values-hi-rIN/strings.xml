@@ -3,4 +3,9 @@
     <string name="music_name">म्यूजिकप्लेयर</string>
     <string name="eq_name">बास बूस्टर</string>
     <string name="photo_name">गैलरी</string>
+    <string name="core_us">हमें रेट करें</string>
+    <string name="core_us_content">अगर आपको हमारी ऐप पसंद है, तो कृपया हमें रेट करें!</string>
+    <string name="core_evaluate">रेट करें</string>
+    <string name="core_review_later">बाद में समीक्षा करें</string>
+
 </resources>

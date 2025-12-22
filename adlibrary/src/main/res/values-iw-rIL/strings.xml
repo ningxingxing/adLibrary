@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">אפליקציות מומלצות</string>
+    <string name="music_name">נגן מוזיקה</string>
+    <string name="eq_name">איקוול라이יזר בס</string>
+    <string name="photo_name">גלריה</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">טפט ערכת נושא לב</string>
+
+    <string name="core_us">דרגו אותנו</string>
+    <string name="core_us_content">אם אהבתם את האפליקציה שלנו, אנא דרגו אותנו!</string>
+    <string name="core_evaluate">דרג</string>
+    <string name="core_review_later">סקור מאוחר יותר</string>
+
+
+</resources>

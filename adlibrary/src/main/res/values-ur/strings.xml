@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">تجویز کردہ ایپس</string>
+    <string name="music_name">موسیقی پلیئر</string>
+    <string name="eq_name">باس ایکوائلائزر</string>
+    <string name="photo_name">گیلری</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">دل کا موضوع والپیپر</string>
+
+    <string name="core_us">ہمیں درجہ دیں</string>
+    <string name="core_us_content">اگر آپ کو ہماری ایپ pasand ہے تو براہ کرم ہمیں درجہ دیں!</string>
+    <string name="core_evaluate">درجہ دیں</string>
+    <string name="core_review_later">بعد میں جائزہ لیں</string>
+
+
+</resources>

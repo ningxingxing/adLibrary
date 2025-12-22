@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">Doporučené aplikace</string>
+    <string name="music_name">Hudební přehrávač</string>
+    <string name="eq_name">Basový ekvalizér</string>
+    <string name="photo_name">Galerie</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Tapeta s tématem srdce</string>
+
+    <string name="core_us">Ohodnoťte nás</string>
+    <string name="core_us_content">Pokud se vám naše aplikace líbí, ohodnoťte nás prosím!</string>
+    <string name="core_evaluate">Ohodnotit</string>
+    <string name="core_review_later">Ohodnotit později</string>
+
+
+</resources>

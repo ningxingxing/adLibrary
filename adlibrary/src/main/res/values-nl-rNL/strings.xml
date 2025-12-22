@@ -1,0 +1,15 @@
+<resources>
+    <string name="recommend_app">Aanbevolen apps</string>
+    <string name="music_name">Muziekspeler</string>
+    <string name="eq_name">Bas equalizer</string>
+    <string name="photo_name">Galerij</string>
+    <string name="wallpaper_live_name">Wallpaper Studio &amp; Live Maker</string>
+    <string name="heart_theme_wallpaper_name">Hart thema achtergrond</string>
+
+    <string name="core_us">Beoordeel ons</string>
+    <string name="core_us_content">Als u onze app leuk vindt, beoordeel ons dan alstublieft!</string>
+    <string name="core_evaluate">Beoordelen</string>
+    <string name="core_review_later">Later beoordelen</string>
+
+
+</resources>

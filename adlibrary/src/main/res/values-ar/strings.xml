@@ -3,4 +3,10 @@
     <string name="music_name">مشغل الموسيقى</string>
     <string name="eq_name">معزز الجهير</string>
     <string name="photo_name">المعرض</string>
+
+    <string name="core_us">قيّمنا</string>
+    <string name="core_us_content">إذا أعجبك تطبيقنا، يرجى تقييمنا!</string>
+    <string name="core_evaluate">تقييم</string>
+    <string name="core_review_later">مراجعة لاحقاً</string>
+
 </resources>
