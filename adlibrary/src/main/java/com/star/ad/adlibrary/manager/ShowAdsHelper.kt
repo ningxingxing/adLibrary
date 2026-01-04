@@ -62,10 +62,7 @@ object ShowAdsHelper {
 
         mAdCount++
         Log.i(TAG, "isCanShowAds mAdCount=$mAdCount")
-        if (mAdCount >= AD_COUNT) {
-            return true
-        }
-        return false
+        return mAdCount >= AD_COUNT
     }
 
     fun setCountSize(count: Int) {

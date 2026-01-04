@@ -36,9 +36,9 @@ open class AdApplication : Application(), Application.ActivityLifecycleCallbacks
         super.onCreate()
         registerActivityLifecycleCallbacks(this)
 
-        launchMain {
-            initAds()
-        }
+//        launchMain {
+//            initAds()
+//        }
 
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
 
