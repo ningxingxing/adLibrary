@@ -31,4 +31,9 @@
         android:text="222222"
         android:textSize="30sp" />
 
+
+    <com.star.ad.adlibrary.view.ShowAdView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

@@ -58,7 +58,7 @@ dependencies {
     implementation("com.google.android.play:review:2.0.2")
     implementation 'com.google.android.play:review-ktx:2.0.2'
 
-    api "androidx.activity:activity-ktx:1.12.2"
+    api "androidx.activity:activity-ktx:1.12.4"
     api "androidx.fragment:fragment-ktx:1.8.9"
 
 //    implementation 'com.android.billingclient:billing:8.1.0'

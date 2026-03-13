@@ -2,6 +2,7 @@ package com.star.ad.adlibrary.utils
 
 import android.app.ActivityManager
 import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Process
 
 
@@ -40,4 +41,21 @@ object Utils {
         return ""
     }
 
+    fun isNetworkAvailable(context: Context?): Boolean {
+        if (context == null) {
+            return false
+        }
+
+        val manager = context
+            .applicationContext.getSystemService(
+                Context.CONNECTIVITY_SERVICE
+            ) as ConnectivityManager?
+
+        if (manager == null) {
+            return false
+        }
+        val networkinfo = manager.getActiveNetworkInfo()
+
+        return !(networkinfo == null || !networkinfo.isAvailable())
+    }
 }
