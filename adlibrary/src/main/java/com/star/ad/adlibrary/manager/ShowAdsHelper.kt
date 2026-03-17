@@ -55,7 +55,7 @@ object ShowAdsHelper {
     }
 
 
-    private fun isCanShowAds(): Boolean {
+    fun isCanShowAds(): Boolean {
         if (!isShowAds) {
             return false
         }

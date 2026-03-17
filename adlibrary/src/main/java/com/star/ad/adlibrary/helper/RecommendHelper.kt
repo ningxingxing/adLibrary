@@ -3,10 +3,9 @@ package com.star.ad.adlibrary.helper
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.util.Log
+import androidx.core.net.toUri
 import com.star.ad.adlibrary.R
-import com.star.ad.adlibrary.RecommendActivity
 
 object RecommendHelper {
 
@@ -20,7 +19,7 @@ object RecommendHelper {
     fun openApp(context: Context,url: String) {
         try {
             val uri =
-                Uri.parse(url)
+                url.toUri()
             val intent = Intent(Intent.ACTION_VIEW, uri)
             context.startActivity(intent)
         } catch (e: ActivityNotFoundException) {
