@@ -32,6 +32,7 @@ import com.star.ad.adlibrary.utils.AdsUtils.getBannerAdId
 import com.star.ad.adlibrary.utils.AdsUtils.getInterstitialId
 import com.star.ad.adlibrary.utils.AdsUtils.getNativeId
 import com.star.ad.adlibrary.utils.AdsUtils.getRewardInterstitialId
+import com.star.ad.adlibrary.utils.NetUtils
 
 object ShowAdsHelper {
     const val TAG = "ShowAdsHelper"
@@ -189,6 +190,10 @@ object ShowAdsHelper {
             return
         }
 
+        if (!NetUtils.isNetworkAvailable(activity)){
+            listener.onComplete()
+        }
+
         if (mInterstitialAd != null) {
             mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
                 override fun onAdClicked() {
@@ -244,6 +249,10 @@ object ShowAdsHelper {
         adTypes: Int = 1,
         isDebug: Boolean = false
     ) {
+        if (!NetUtils.isNetworkAvailable(activity)) {
+            listener.onAdFailedToLoad(LoadAdError(-1, "no net", "", null, null))
+            return
+        }
         isDestroyNativeAd = false
         val adOptions = NativeAdOptions.Builder()
             //设置广告方向
@@ -382,7 +391,10 @@ object ShowAdsHelper {
         isDebug: Boolean = false
     ): Boolean {
 
-        if (rewardedInterstitialAd == null) return false
+        if (rewardedInterstitialAd == null) {
+            listener.onAdFailedToShow()
+            return false
+        }
 
         val rewardItem: RewardItem? = rewardedInterstitialAd?.rewardItem
         val rewardAmount = rewardItem?.amount
@@ -390,6 +402,7 @@ object ShowAdsHelper {
 
         if (rewardAmount == null || rewardType == null) return false
         if (!isCanShowAds() && !isImmediately) {
+            listener.onAdShowed()
             return false
         }
         if (isShowDialog) {
@@ -412,6 +425,7 @@ object ShowAdsHelper {
         }
         if (rewardedInterstitialAd == null) {
             Log.d(TAG, "showRewardedVideo The rewarded interstitial ad wasn't ready yet.")
+            listener.onAdFailedToShow()
             return
         }
         rewardedInterstitialAd!!.fullScreenContentCallback = object : FullScreenContentCallback() {

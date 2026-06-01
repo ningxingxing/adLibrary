@@ -10,6 +10,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import com.star.ad.adlibrary.interfaces.OnShowAdCompleteListener
 import com.star.ad.adlibrary.utils.AdsUtils.getAdAppOpenId
+import com.star.ad.adlibrary.utils.NetUtils
 import java.util.Date
 
 
@@ -75,6 +76,12 @@ object AppOpenAdManager {
         // If the app open ad is already showing, do not show the ad again.
         if (isShowingAd) {
             Log.d(TAG, "The app open ad is already showing.")
+            onShowAdCompleteListener.onShowAdComplete()
+            return
+        }
+
+        if (!NetUtils.isNetworkAvailable(activity)) {
+            onShowAdCompleteListener.onShowAdComplete()
             return
         }
 
