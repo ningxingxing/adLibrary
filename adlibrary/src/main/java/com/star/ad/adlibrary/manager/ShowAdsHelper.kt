@@ -139,17 +139,19 @@ object ShowAdsHelper {
     private var mInterstitialAd: InterstitialAd? = null
     private var adIsLoading: Boolean = false
 
+    /**
+     * 判断当前是否已经有缓存好的广告
+     */
     fun isLoadInterstitialAds(): Boolean {
-        if (isCanShowAds() && mInterstitialAd != null) {
-            return true
-        }
-        return false
+        // 建议确保 isCanShowAds() 的逻辑本身是严谨的
+        return isCanShowAds() && mInterstitialAd != null
     }
 
     /**
      * 加载插页广告
      */
-    private fun loadInterstitialAds(context: Activity, isFirst: Boolean, isDebug: Boolean = false) {
+     fun loadInterstitialAds(context: Activity, isFirst: Boolean, isDebug: Boolean = false) {
+
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(
             context,
@@ -165,7 +167,7 @@ object ShowAdsHelper {
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
                     Log.d(TAG, "onAdLoaded =$interstitialAd")
                     mInterstitialAd = interstitialAd
-                    adIsLoading = false
+                    adIsLoading = true
                     if (isFirst) {
                         // listener.onComplete()
 //                    adIsLoading = false
@@ -192,8 +194,9 @@ object ShowAdsHelper {
 
         if (!NetUtils.isNetworkAvailable(activity)){
             listener.onComplete()
+            return
         }
-
+        Log.d(TAG,"showInterstitialAds mInterstitialAd=$mInterstitialAd")
         if (mInterstitialAd != null) {
             mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
                 override fun onAdClicked() {
@@ -213,6 +216,8 @@ object ShowAdsHelper {
                     // Called when ad fails to show.
                     Log.e(TAG, "Ad failed to show fullscreen content.")
                     mInterstitialAd = null
+                    listener.dismiss()
+                    loadInterstitialAds(activity, isDebug)
                 }
 
 
@@ -225,11 +230,8 @@ object ShowAdsHelper {
             }
             mInterstitialAd?.show(activity)
         } else {
-            if (!adIsLoading && mInterstitialAd == null) {
-                adIsLoading = true
-                loadInterstitialAds(activity, true)
-            }
             listener.onComplete()
+            loadInterstitialAds(activity, isDebug)
         }
     }
 

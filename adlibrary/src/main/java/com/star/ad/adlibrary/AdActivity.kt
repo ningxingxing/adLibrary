@@ -64,6 +64,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
     private lateinit var btnShowRewardInterstitialAd: Button
     private lateinit var btnUpdate: Button
     private lateinit var btnCore: Button
+    private lateinit var btnInterstitialLoad:Button
 
     private lateinit var mAdView: AdView
 
@@ -98,6 +99,8 @@ class AdActivity : AppCompatActivity(), OnClickListener {
         btnOpenAd.setOnClickListener(this)
         rlBannerAds = findViewById(R.id.rl_banner_ads)
         rlBannerAds.setOnClickListener(this)
+        btnInterstitialLoad = findViewById(R.id.btn_interstitial_load)
+        btnInterstitialLoad.setOnClickListener(this)
         btnInterstitialAd = findViewById(R.id.btn_interstitial_ad)
         btnInterstitialAd.setOnClickListener(this)
         adFrame = findViewById(R.id.ad_frame)
@@ -183,6 +186,10 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                 )
             }
 
+            R.id.btn_interstitial_load->{
+                ShowAdsHelper.loadInterstitialAds(this@AdActivity,false, true)
+            }
+
             R.id.btn_interstitial_ad -> {//插页广告
                 showInterstitialAds(this@AdActivity, object : OnInterstitialAdListener {
                     override fun onComplete() {
@@ -197,7 +204,7 @@ class AdActivity : AppCompatActivity(), OnClickListener {
                         super.dismiss()
 
                     }
-                }, true)
+                }, true, isDebug = true)
 
             }
 
