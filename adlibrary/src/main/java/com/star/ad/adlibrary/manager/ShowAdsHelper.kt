@@ -529,5 +529,10 @@ object ShowAdsHelper {
         return false
     }
 
+    fun destroyNativeAd() {
+        mAdLoader = null           // 释放对 AdLoader 的引用
+        mCurrentNativeAd?.destroy() // 销毁当前的广告对象
+        mCurrentNativeAd = null
+    }
 
 }
